@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 
 <html lang="fr">
@@ -28,7 +32,11 @@
     <nav id="main-nav">   
         <ul>
             <li><a href="./index.php">Accueil</a></li>
-            <li><a href="./about.php">Mes listes</a></li>
+            <?php if (isset($loggedUser)) : ?>
+                <li><a href="#">Mes listes</a></li>
+            <?php else : ?>
+                <li><a href="./signup.php">Créer une liste</a></li>
+            <? endif ; ?>
             <li><a href="./projects.php">Trouver une liste</a></li>
             <li><a href="./impression.php">Idées cadeaux</a></li>
         </ul>

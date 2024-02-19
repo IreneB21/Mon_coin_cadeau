@@ -326,6 +326,7 @@ header {
     background-size: contain;
     background-size: 850px;
     background-position: 0 -415px;
+    background-repeat: no-repeat;
     border-radius: 80px;
     img {
         transform: rotate(45deg);
