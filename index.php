@@ -29,22 +29,25 @@ session_start();
 </head>
 
 <body>
-    <nav id="main-nav">   
-        <ul>
-            <li><a href="./index.php">Accueil</a></li>
-            <?php if (isset($loggedUser)) : ?>
-                <li><a href="#">Mes listes</a></li>
-            <?php else : ?>
-                <li><a href="./signup.php">Créer une liste</a></li>
-            <? endif ; ?>
-            <li><a href="./projects.php">Trouver une liste</a></li>
-            <li><a href="./impression.php">Idées cadeaux</a></li>
-        </ul>
+    <nav id="main-nav">
+        <?php require_once(__DIR__ . '/navbar.php'); ?>   
     </nav>
 
     <div id="content-wrap">
         <header>
-            <?php require_once(__DIR__ . '/header.php'); ?>
+            <div class="navbar" onclick="ouvrirMenu()">
+                <input type="checkbox">
+                <span class="barre-une"></span>
+                <span class="barre-deux"></span>
+            </div>
+            <div>
+                <img src="./images/logo.png" alt="" class="logo">
+            </div>
+            <div class="container-session">
+                <a class="cta-session login" href="login.php">Connexion</a>
+                <a class="cta-session signup" href="signup.php">M'inscrire</a>
+                <!-- afficher bouton Déconnexion si utilisateur connecté -->
+            </div>
         </header>
 
         <main>
@@ -72,7 +75,7 @@ session_start();
             <div class="explications">
                 <h1>Pour démarrer, rien de plus facile</h1>
                 <p>Expliquer fonctionnement liste, comment en créer une, le but, possibilité de partager... Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <a href="#" class="cta">C'est parti</a> <!-- Renvoie vers page de connexion, d'inscription ou de création de liste en fonction des cas -->
+                <a href="#" class="cta">C'est parti</a> <!-- Renvoie vers page de connexion ou de création de liste en fonction des cas -->
             </div>
             <div class="box-bulles">
                 <div class="bulle huit"></div>
@@ -84,23 +87,6 @@ session_start();
                 <div class="bulle quatorze"></div>
             </div>
         </section>
-
-        <!--<section class="type-listes">
-            <div class="type-listes-container">
-                <div class="type-liste-box">
-                    <a href="#" class="cta">Créer ma liste</a>
-                </div>
-                <div class="type-liste-box">
-                    <a href="#" class="cta">Créer ma liste</a>
-                </div>
-                <div class="type-liste-box">
-                    <a href="#" class="cta">Créer ma liste</a>
-                </div>
-                <div class="type-liste-box">
-                    <a href="#" class="cta">Créer ma liste</a>
-                </div>
-            </div>
-        </section>-->
         </main>
 
         <footer>
