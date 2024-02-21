@@ -35,11 +35,7 @@ session_start();
 
     <div id="content-wrap">
         <header>
-            <div class="navbar" onclick="ouvrirMenu()">
-                <input type="checkbox">
-                <span class="barre-une"></span>
-                <span class="barre-deux"></span>
-            </div>
+            <?php require_once(__DIR__ . '/hamburgerMenu.php'); ?>
             <div>
                 <img src="./images/logo.png" alt="" class="logo">
             </div>

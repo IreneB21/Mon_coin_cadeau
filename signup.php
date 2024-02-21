@@ -46,71 +46,65 @@ require_once(__DIR__ . '/functions.php');
 
     <div id="content-wrap">
     <header>
-            <div class="navbar" onclick="ouvrirMenu()">
-                <input type="checkbox">
-                <span class="barre-une"></span>
-                <span class="barre-deux"></span>
+        <?php require_once(__DIR__ . '/hamburgerMenu.php'); ?>
+        <div>
+            <img src="./images/logo.png" alt="" class="logo">
+        </div>
+    </header>
+
+    <main>
+    <!-- On affiche le formulaire d'inscription -->
+        <form action="#" method="POST">
+            <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="you@exemple.com">
             </div>
             <div>
-                <img src="./images/logo.png" alt="" class="logo">
+                <label for="username">Nom d'utilisateur</label>
+                <input type="text" id="username" name="username">
             </div>
-        </header>
+            <div>
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="password">
+            </div>
+            <button type="submit" class="cta">M'inscrire</button>
+        </form>
+        
+    <!-- Traitement du formulaire -->
+        <div class="submit_form">
+        <?php
 
-        <main>
-        <!-- On affiche le formulaire d'inscription -->
-            <form action="#" method="POST">
-                <div>
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="you@exemple.com">
-                </div>
-                <div>
-                    <label for="username">Nom d'utilisateur</label>
-                    <input type="text" id="username" name="username">
-                </div>
-                <div>
-                    <label for="password">Mot de passe</label>
-                    <input type="password" id="password" name="password">
-                </div>
-                <button type="submit" class="cta">M'inscrire</button>
-            </form>
-            
-        <!-- Traitement du formulaire -->
-            <div class="submit_form">
-            <?php
+        $message = '';
 
-            $message = '';
+        if (isset($_POST['email']) && isset($_POST['username']) && isset($_POST['password'])) {
+            if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+                $_SESSION['LOGIN_ERROR_MESSAGE'] = 'Il faut un email valide pour soumettre le formulaire.';
+            } else {
+                $username = $_POST['username'];
+                $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+                $email = $_POST['email'];
 
-            if (isset($_POST['email']) && isset($_POST['username']) && isset($_POST['password'])) {
-                if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-                    $_SESSION['LOGIN_ERROR_MESSAGE'] = 'Il faut un email valide pour soumettre le formulaire.';
+                $sql = "INSERT INTO users (email, username, password) VALUES (:email, :username, :password)";
+                $stmt = $pdo->prepare($sql);
+                $result = $stmt->execute(['email' => $email, 'username' => $username, 'password' => $password]);
+
+                if ($result) {
+                    $message = 'Inscription réussie ! Bienvenue parmi nous !';
+                    //header('Location: login.php');
                 } else {
-                    $username = $_POST['username'];
-                    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-                    $email = $_POST['email'];
-
-                    $sql = "INSERT INTO users (email, username, password) VALUES (:email, :username, :password)";
-                    $stmt = $pdo->prepare($sql);
-                    $result = $stmt->execute(['email' => $email, 'username' => $username, 'password' => $password]);
-
-                    if ($result) {
-                        $message = 'Inscription réussie ! Bienvenue parmi nous !';
-                        //header('Location: login.php');
-                    } else {
-                        $message = 'Erreur lors de l\'inscription.';
-                    }
+                    $message = 'Erreur lors de l\'inscription.';
                 }
+            }
+        }
 
-                redirectToUrl('index.php');
-                }
-                ?>
+        // redirectToUrl('index.php');
+        ?>
 
-            </div>
-        <!-- Si utilisateur n'a pas de compte on renvoie vers le formulaire d'inscription -->
-            <a href="signup.php" class="cta">Pas de compte ? Inscrivez-vous</a>
-        </main>
+        </div>
+    </main>
 
-        <footer>
-            <?php require_once(__DIR__ . '/footer.php'); ?>
-        </footer>
+    <footer>
+        <?php require_once(__DIR__ . '/footer.php'); ?>
+    </footer>
     </div>
 </body>

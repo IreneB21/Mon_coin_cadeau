@@ -45,67 +45,62 @@ require_once(__DIR__ . '/functions.php');
 
     <div id="content-wrap">
     <header>
-            <div class="navbar" onclick="ouvrirMenu()">
-                <input type="checkbox">
-                <span class="barre-une"></span>
-                <span class="barre-deux"></span>
+        <?php require_once(__DIR__ . '/hamburgerMenu.php'); ?>
+        <div>
+            <img src="./images/logo.png" alt="" class="logo">
+        </div>
+    </header>
+
+    <main>
+    <!-- On affiche le formulaire de connexion pour utilisateur déjà inscrit -->
+        <form action="#" method="POST">
+            <div>
+                <label for="username">Nom d'utilisateur</label>
+                <input type="text" id="username" name="username" aria-describedby="username-help">
+                <div id="username-help">L'identifiant utilisé lors de la création du compte.</div>
             </div>
             <div>
-                <img src="./images/logo.png" alt="" class="logo">
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="password">
             </div>
-        </header>
+            <button type="submit" class="cta">Me connecter</button>
+        </form>
+        
+    <!-- Traitement du formulaire -->
+        <div class="submit_form">
+        <?php
 
-        <main>
-        <!-- On affiche le formulaire de connexion pour utilisateur déjà inscrit -->
-            <form action="#" method="POST">
-                <div>
-                    <label for="username">Nom d'utilisateur</label>
-                    <input type="text" id="username" name="username" aria-describedby="username-help">
-                    <div id="username-help">L'identifiant utilisé lors de la création du compte.</div>
-                </div>
-                <div>
-                    <label for="password">Mot de passe</label>
-                    <input type="password" id="password" name="password">
-                </div>
-                <button type="submit" class="cta">Me connecter</button>
-            </form>
+        $message = '';
+
+        if (isset($_POST['username']) && isset($_POST['password'])) {
             
-        <!-- Traitement du formulaire -->
-            <div class="submit_form">
-            <?php
+            $username = $_POST['username'];
+            $password = $_POST['password'];
 
-            $message = '';
+            $sql = "SELECT * FROM users WHERE username = :username";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute(['username' => $username]);
+            $user = $stmt->fetch();
 
-            if (isset($_POST['username']) && isset($_POST['password'])) {
-                
-                $username = $_POST['username'];
-                $password = $_POST['password'];
-
-                $sql = "SELECT * FROM users WHERE username = :username";
-                $stmt = $pdo->prepare($sql);
-                $stmt->execute(['username' => $username]);
-                $user = $stmt->fetch();
-
-                if ($user && password_verify($password, $user['password'])) {
-                    session_start();
-                    $_SESSION['user_id'] = $user['id'];
-                    //header('Location: dashboard.php');
-                } else {
-                    $message = 'Les informations envoyées ne permettent pas de vous identifier.';
-                }
+            if ($user && password_verify($password, $user['password'])) {
+                session_start();
+                $_SESSION['user_id'] = $user['id'];
+                //header('Location: dashboard.php');
+            } else {
+                $message = 'Les informations envoyées ne permettent pas de vous identifier.';
             }
+        }
 
-            redirectToUrl('index.php');
-            
-            ?>
+        // redirectToUrl('index.php');
+        ?>
 
-            </div>
-        <!-- Si utilisateur n'a pas de compte on renvoie vers le formulaire d'inscription -->
-            <a href="signup.php" class="cta">Pas de compte ? Inscrivez-vous</a>
-        </main>
+        </div>
+    <!-- Si utilisateur n'a pas de compte on renvoie vers le formulaire d'inscription -->
+        <a href="signup.php" class="cta inscription">Pas de compte ? Inscrivez-vous</a>
+    </main>
 
-        <footer>
-            <?php require_once(__DIR__ . '/footer.php'); ?>
-        </footer>
+    <footer>
+        <?php require_once(__DIR__ . '/footer.php'); ?>
+    </footer>
     </div>
 </body>
