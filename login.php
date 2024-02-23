@@ -1,5 +1,5 @@
 <?php
-//require_once(__DIR__ . '/databaseconnect.php');
+require_once(__DIR__ . '/databaseconnect.php');
 require_once(__DIR__ . '/functions.php');
 
 /*setcookie(
@@ -71,7 +71,7 @@ require_once(__DIR__ . '/functions.php');
                     <label for="password">Mot de passe</label>
                     <input type="password" id="password" name="password">
                 </div>
-                <button type="submit" class="cta-session">Me connecter</button>
+                <button type="submit" class="btn-session">Me connecter</button>
             </form>
             
         <!-- Traitement du formulaire -->

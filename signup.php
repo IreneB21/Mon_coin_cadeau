@@ -1,6 +1,4 @@
 <?php
-//require_once(__DIR__ . '/databaseconnect.php');
-require_once(__DIR__ . '/functions.php');
 
 /*setcookie(
     'LOGGED_USER',
@@ -53,8 +51,7 @@ require_once(__DIR__ . '/functions.php');
     </header>
 
     <main>
-    <!-- On affiche le formulaire d'inscription -->
-        <form action="#" method="POST">
+        <form action="postForm.php" method="POST">
             <div>
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="you@exemple.com">
@@ -65,41 +62,10 @@ require_once(__DIR__ . '/functions.php');
             </div>
             <div>
                 <label for="password">Mot de passe</label>
-                <input type="password" id="password" name="password">
+                <input type="password" id="pswd" name="pswd">
             </div>
-            <button type="submit" class="cta-session">M'inscrire</button>
+            <button type="submit" class="btn-session">M'inscrire</button>
         </form>
-        
-    <!-- Traitement du formulaire -->
-        <div class="submit_form">
-        <?php
-
-        $message = '';
-
-        if (isset($_POST['email']) && isset($_POST['username']) && isset($_POST['password'])) {
-            if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-                $_SESSION['LOGIN_ERROR_MESSAGE'] = 'Il faut un email valide pour soumettre le formulaire.';
-            } else {
-                $username = $_POST['username'];
-                $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-                $email = $_POST['email'];
-
-                $sql = "INSERT INTO users (email, username, password) VALUES (:email, :username, :password)";
-                $stmt = $pdo->prepare($sql);
-                $result = $stmt->execute(['email' => $email, 'username' => $username, 'password' => $password]);
-
-                if ($result) {
-                    $message = 'Inscription réussie ! Bienvenue parmi nous !';
-                    //header('Location: login.php');
-                } else {
-                    $message = 'Erreur lors de l\'inscription.';
-                }
-            }
-        }
-
-        // redirectToUrl('index.php');
-        ?>
-        </div>
         <p class="invitation-session">Déjà inscrit ? <a href="login.php" class="lien-session">Connectez-vous</a></p>
     </main>
     </div>

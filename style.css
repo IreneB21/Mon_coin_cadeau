@@ -104,7 +104,7 @@ header {
     color: #6EF9F5;
     transition: border 0.2s ease-in, background-color 0.5s;
     &:hover {
-        border: 1px solid pink;
+        border: 1.5px solid pink;
         background-color: #5ABCB9;
         color: #323031;
     }
@@ -144,7 +144,7 @@ header {
     background-color: #2A3D45;
     padding: 8.5px;
     transition: 0.5s;
-    border-radius: 50px;
+    border-radius: 54px;
     overflow: hidden;
     z-index: 11;
     display: flex;
@@ -173,7 +173,7 @@ header {
 
 .barre-une {
     left: 10px;
-    top: 28%;
+    top: 32%;
     transform: rotate(-45deg);
 }
 
@@ -185,7 +185,7 @@ header {
 
 .barre-trois {
     left: 10px;
-    top: 72%;
+    top: 68%;
     transform: rotate(45deg);
 }
 
@@ -495,7 +495,7 @@ form button {
     margin-top: 2%;
 }
 
-.cta-session {
+.btn-session {
     width: 90%;
     background-color: #2A3D45;
     color: #6EF9F5;
