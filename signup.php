@@ -67,7 +67,7 @@ require_once(__DIR__ . '/functions.php');
                 <label for="password">Mot de passe</label>
                 <input type="password" id="password" name="password">
             </div>
-            <button type="submit" class="cta">M'inscrire</button>
+            <button type="submit" class="cta-session">M'inscrire</button>
         </form>
         
     <!-- Traitement du formulaire -->
@@ -99,12 +99,8 @@ require_once(__DIR__ . '/functions.php');
 
         // redirectToUrl('index.php');
         ?>
-
         </div>
+        <p class="invitation-session">Déjà inscrit ? <a href="login.php" class="lien-session">Connectez-vous</a></p>
     </main>
-
-    <footer>
-        <?php require_once(__DIR__ . '/footer.php'); ?>
-    </footer>
     </div>
 </body>

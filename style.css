@@ -457,33 +457,137 @@ header {
 /*      FORMULAIRES     */ 
 
 form {
-    width: 50%;
+    width: 32%;
     display: flex;
     flex-direction: column;
     margin: auto;
+    align-items: center;
     border: 1px solid black;
     padding: 24px 40px;
+    border-radius: 32px;
 }
 
 label,
 input {
-    width: 70%;
+    width: 60%;
     margin-bottom: 16px;
 }
 
-.cta.inscription {
-    border: 0.7px solid black;
-    background-color: white;
-    transition: background-color 0.5s;
-    &:hover {
-        background-color: #9DC5BB;
-        color: #323031;
-        border: 0.3px solid black;;
-    }
+label {
+    border-radius: 8px;
 }
 
 form button {
     width: 24%;
+}
+
+.lien-session {
+    cursor: pointer;
+    color: #9E57D5;
+    text-decoration: underline;
+    &:hover {
+        color: #605C9A;
+    }
+}
+
+.invitation-session {
+    margin-bottom: 20%;
+    margin-top: 2%;
+}
+
+.cta-session {
+    width: 90%;
+    background-color: #2A3D45;
+    color: #6EF9F5;
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding: 20px 28px;
+    margin-bottom: 24px;
+    border-radius: 40px;
+    transition: font-size 0.2s, background-color 0.5s;
+    &:hover {
+        background-color: #5ABCB9;
+        color: #323031;
+        font-size: 1.6rem;
+    }
+}
+
+/*      LOGIN     */
+
+#content-wrap-login {
+    position: relative;
+    backdrop-filter: blur(8px);
+    border: solid 1px black;
+}
+
+.bulle.quinze {
+    height: 100px;
+    width: 117px;
+    background-color: #F7B2AD;
+    border-radius: 11% 89% 60% 40% / 19% 40% 60% 81%;
+    position: absolute;
+    bottom: 8px;
+    left: 40px;
+}
+
+.bulle.seize {
+    height: 87px;
+    width: 92px;
+    background-color: #9EA3B0;
+    border-radius: 32% 68% 65% 35% / 23% 39% 61% 77%;
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+}
+
+.bulle.dix-sept {
+    height: 59px;
+    width: 66px;
+    background-color: #3FACBB;
+    border-radius: 78% 22% 48% 52% / 39% 49% 51% 61%;
+    position: absolute;
+    bottom: 100px;
+    right: 332px;
+}
+
+.bulle.dix-huit {
+    height: 86px;
+    width: 92px;
+    background-color: #639FAB;
+    border-radius: 100% 0% 79% 21% / 33% 39% 61% 67%;
+    position: absolute;
+    bottom: 148px;
+    left: -32px;
+}
+
+.bulle.dix-neuf {
+    height: 106px;
+    width: 109px;
+    background-color: #F7B2AD;
+    border-radius: 38% 62% 79% 21% / 33% 39% 61% 67%;
+    position: absolute;
+    top: 188px;
+    right: -32px;
+}
+
+.bulle.vingt {
+    height: 67px;
+    width: 69px;
+    background-color: #9EA3B0;
+    border-radius: 58% 42% 54% 46% / 33% 39% 61% 67%;
+    position: absolute;
+    top: 64px;
+    left: 532px;
+}
+
+.bulle.vingt-et-un {
+    height: 101px;
+    width: 103px;
+    background-color: #FBF693;
+    border-radius: 11% 89% 67% 33% / 11% 31% 69% 89%;
+    position: absolute;
+    top: 140px;
+    left: 64px;
 }
 
 /*      FOOTER     */ 
