@@ -10,6 +10,7 @@ html {
   
 body {
     font-family: 'Montserrat', sans-serif;
+    height: 100%;
 }
 
 h1 {
@@ -113,7 +114,7 @@ header {
 #main-nav {
     width: 220px;
     position: fixed;
-    z-index: 10;
+    z-index: 20;
     top: 0;
     height: 100%;
     left: -220px;
@@ -146,7 +147,7 @@ header {
     transition: 0.5s;
     border-radius: 54px;
     overflow: hidden;
-    z-index: 11;
+    z-index: 100;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -514,7 +515,7 @@ form button {
 
 /*      LOGIN     */
 
-#content-wrap-login {
+#content-wrap-session {
     position: relative;
     backdrop-filter: blur(8px);
     border: solid 1px black;
@@ -588,6 +589,135 @@ form button {
     position: absolute;
     top: 140px;
     left: 64px;
+}
+
+/*      SIGNUP     */
+
+.bulle.vingt-deux {
+    height: 57px;
+    width: 61px;
+    background-color: #9EA3B0;
+    border-radius: 54% 46% 45% 55% / 48% 61% 39% 52%;
+    position: absolute;
+    top: 108px;
+    left: 32px;
+}
+
+.bulle.vingt-trois {
+    height: 86px;
+    width: 99px;
+    background-color: #AAD7D9;
+    border-radius: 85% 15% 45% 55% / 48% 24% 76% 52%;
+    position: absolute;
+    top: 64px;
+    left: 532px;
+}
+
+.bulle.vingt-quatre {
+    height: 67px;
+    width: 69px;
+    background-color: #9EA3B0;
+    border-radius: 58% 42% 54% 46% / 33% 39% 61% 67%;
+    position: absolute;
+    top: 64px;
+    left: 532px;
+}
+
+.bulle.vingt-cinq {
+    height: 67px;
+    width: 69px;
+    background-color: #9EA3B0;
+    border-radius: 58% 42% 54% 46% / 33% 39% 61% 67%;
+    position: absolute;
+    top: 64px;
+    left: 532px;
+}
+
+.bulle.vingt-six {
+    height: 67px;
+    width: 69px;
+    background-color: #9EA3B0;
+    border-radius: 58% 42% 54% 46% / 33% 39% 61% 67%;
+    position: absolute;
+    top: 64px;
+    left: 532px;
+}
+
+.bulle.vingt-sept {
+    height: 67px;
+    width: 69px;
+    background-color: #9EA3B0;
+    border-radius: 58% 42% 54% 46% / 33% 39% 61% 67%;
+    position: absolute;
+    top: 64px;
+    left: 532px;
+}
+
+/*      SIGNUP VALIDATION     */
+
+.bulle.vingt-huit {
+    height: 53px;
+    width: 67px;
+    background-color: #F7B2AD;
+    border-radius: 44% 56% 71% 29% / 33% 50% 50% 67%;
+    position: absolute;
+    bottom: 48px;
+    right: 88px;
+}
+
+.bulle.vingt-neuf {
+    height: 56px;
+    width: 70px;
+    background-color: #AAD7D9;
+    border-radius: 64% 36% 71% 29% / 33% 4% 96% 67%;
+    position: absolute;
+    top: 62px;
+    right: 324px;
+}
+
+.bulle.trente {
+    height: 58px;
+    width: 65px;
+    background-color: #3FACBB;
+    border-radius: 0% 100% 20% 80% / 33% 45% 55% 67%;
+    position: absolute;
+    bottom: 148px;
+    left: 40px;
+}
+
+.bulle.trente-et-un {
+    height: 52px;
+    width: 58px;
+    background-color: #E5E1DA;
+    border-radius: 54% 46% 45% 55% / 50% 45% 55% 50%;
+    position: absolute;
+    top: 56px;
+    left: 140px;
+}
+
+.bulle.trente-deux {
+    height: 80px;
+    width: 97px;
+    background-color: #F7B2AD;
+    border-radius: 11% 89% 60% 40% / 19% 40% 60% 81%;
+    position: absolute;
+    bottom: 16px;
+    left: 56px;
+}
+
+.validation-inscription {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 10%;
+    padding: 132px 108px;
+    border-radius: 50px;
+    background-image: url('./images/photo-inscription.jpg');
+    background-size: 1400px;
+    background-repeat: no-repeat;
+    background-position: -280px -340px;
 }
 
 /*      FOOTER     */ 

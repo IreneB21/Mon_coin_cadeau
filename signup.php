@@ -42,7 +42,14 @@
         <?php require_once(__DIR__ . '/navbar.php'); ?>
     </nav>
 
-    <div id="content-wrap">
+    <div class="bulle vingt-deux"></div>
+    <div class="bulle vingt-trois"></div>
+    <div class="bulle vingt-quatre"></div>
+    <div class="bulle vingt-cinq"></div>
+    <div class="bulle vingt-six"></div>
+    <div class="bulle vingt-sept"></div>
+
+    <div id="content-wrap-session">
     <header>
         <?php require_once(__DIR__ . '/hamburgerMenu.php'); ?>
         <div>

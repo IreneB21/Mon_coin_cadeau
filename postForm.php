@@ -66,7 +66,13 @@ catch(PDOException $e){
         <?php require_once(__DIR__ . '/navbar.php'); ?>
     </nav>
 
-    <div id="content-wrap">
+    <div class="bulle vingt-huit"></div>
+    <div class="bulle vingt-neuf"></div>
+    <div class="bulle trente"></div>
+    <div class="bulle trente-et-un"></div>
+    <div class="bulle trente-deux"></div>
+
+    <div id="content-wrap-session">
     <header>
         <?php require_once(__DIR__ . '/hamburgerMenu.php'); ?>
         <div>
@@ -77,7 +83,12 @@ catch(PDOException $e){
     <main>
         <div class="validation-inscription">
             <h3>Inscription réussie ! Bienvenue parmi nous !</h3>
-            <p>Vous pouvez maintenant créer et modifier vos propres listes, réserver un article sur une liste et poster des commentaires. <br>Alors, prêt à explorer notre monde plein de surprises ?</p>
+            <p>Vous pouvez maintenant : <br>
+             - créer et modifier vos propres listes ; <br>
+             - réserver un article d'une liste pour l'offrir ; <br>
+             - et poster des commentaires. <br>
+            Il ne vous reste plus qu'à vous <a href="login.php" class="lien-session">connecter</a> pour profiter de toutes ces fonctionnalités.
+            </p>
         </div>
     </main>
     </div>

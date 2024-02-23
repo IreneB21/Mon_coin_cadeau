@@ -51,7 +51,7 @@ require_once(__DIR__ . '/functions.php');
     <div class="bulle vingt"></div>
     <div class="bulle vingt-et-un"></div>
 
-    <div id="content-wrap-login">
+    <div id="content-wrap-session">
         <header>
             <?php require_once(__DIR__ . '/hamburgerMenu.php'); ?>
             <div>
