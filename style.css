@@ -1,16 +1,20 @@
 * {
     margin: 0;
 }
+
+html,
+body,
+main {
+    height: 100%;
+}
   
 html {
-    height: 100%;
     background-color: #FFFFFF;
     box-sizing: border-box;
 }
   
 body {
     font-family: 'Montserrat', sans-serif;
-    height: 100%;
 }
 
 h1 {
@@ -470,12 +474,15 @@ form {
 
 label,
 input {
-    width: 60%;
     margin-bottom: 16px;
 }
 
 label {
     border-radius: 8px;
+}
+
+#username-help {
+    font-size: 0.8rem;
 }
 
 form button {
@@ -599,8 +606,8 @@ form button {
     background-color: #9EA3B0;
     border-radius: 54% 46% 45% 55% / 48% 61% 39% 52%;
     position: absolute;
-    top: 108px;
-    left: 32px;
+    top: 54px;
+    left: 140px;
 }
 
 .bulle.vingt-trois {
@@ -609,44 +616,44 @@ form button {
     background-color: #AAD7D9;
     border-radius: 85% 15% 45% 55% / 48% 24% 76% 52%;
     position: absolute;
-    top: 64px;
-    left: 532px;
+    top: 188px;
+    left: -16px;
 }
 
 .bulle.vingt-quatre {
-    height: 67px;
-    width: 69px;
-    background-color: #9EA3B0;
-    border-radius: 58% 42% 54% 46% / 33% 39% 61% 67%;
+    height: 123px;
+    width: 88px;
+    background-color: #FFC6AC;
+    border-radius: 85% 15% 31% 69% / 48% 33% 67% 52%;
     position: absolute;
-    top: 64px;
-    left: 532px;
+    bottom: 164px;
+    right: 100px;
 }
 
 .bulle.vingt-cinq {
-    height: 67px;
-    width: 69px;
-    background-color: #9EA3B0;
-    border-radius: 58% 42% 54% 46% / 33% 39% 61% 67%;
+    height: 98px;
+    width: 83px;
+    background-color: #FAE1DF;
+    border-radius: 85% 15% 40% 60% / 36% 7% 93% 64%;
     position: absolute;
-    top: 64px;
-    left: 532px;
+    bottom: 164px;
+    right: 532px;
 }
 
 .bulle.vingt-six {
-    height: 67px;
-    width: 69px;
-    background-color: #9EA3B0;
-    border-radius: 58% 42% 54% 46% / 33% 39% 61% 67%;
+    height: 82px;
+    width: 80px;
+    background-color: #B7C9F2;
+    border-radius: 85% 15% 20% 80% / 37% 7% 93% 63%;
     position: absolute;
-    top: 64px;
-    left: 532px;
+    bottom: 88px;
+    right: 116px;
 }
 
 .bulle.vingt-sept {
     height: 67px;
     width: 69px;
-    background-color: #9EA3B0;
+    background-color: #FDFFAB;
     border-radius: 58% 42% 54% 46% / 33% 39% 61% 67%;
     position: absolute;
     top: 64px;

@@ -61,15 +61,15 @@
         <form action="postForm.php" method="POST">
             <div>
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="you@exemple.com">
+                <input type="email" id="email" name="email" placeholder="you@exemple.com" pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
             </div>
             <div>
                 <label for="username">Nom d'utilisateur</label>
-                <input type="text" id="username" name="username">
+                <input type="text" id="username" name="username" maxlength="40" required>
             </div>
             <div>
                 <label for="password">Mot de passe</label>
-                <input type="password" id="pswd" name="pswd">
+                <input type="password" id="pswd" name="pswd" required>
             </div>
             <button type="submit" class="btn-session">M'inscrire</button>
         </form>

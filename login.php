@@ -1,6 +1,7 @@
 <?php
-require_once(__DIR__ . '/databaseconnect.php');
+session_start();
 require_once(__DIR__ . '/functions.php');
+require ('databaseConnect.php');
 
 /*setcookie(
     'LOGGED_USER',
@@ -60,46 +61,39 @@ require_once(__DIR__ . '/functions.php');
         </header>
 
         <main>
-        <!-- On affiche le formulaire de connexion pour utilisateur déjà inscrit -->
-            <form action="#" method="POST">
+            <form action="postLogin.php" method="POST">
                 <div>
                     <label for="username">Nom d'utilisateur</label>
-                    <input type="text" id="username" name="username" aria-describedby="username-help">
-                    <div id="username-help">L'identifiant utilisé lors de la création du compte.</div>
+                    <input type="text" id="username" name="username" aria-describedby="username-help" required>
+                    <p id="username-help">L'identifiant utilisé lors de la création du compte.</p>
                 </div>
                 <div>
                     <label for="password">Mot de passe</label>
-                    <input type="password" id="password" name="password">
+                    <input type="password" id="password" name="password" required>
                 </div>
                 <button type="submit" class="btn-session">Me connecter</button>
             </form>
-            
-        <!-- Traitement du formulaire -->
-            <div class="submit_form">
+            <div class="traitement-formulaire">
             <?php
+            /*if (isset($_POST['username']) && isset($_POST['pswd'])) {
+                //$username = htmlspecialchars($_POST['username']); 
+                //$pswd = htmlspecialchars($_POST['pswd']);
+                $message = '';
 
-            $message = '';
+                $sth = $dbco->prepare("SELECT * FROM users WHERE username = :username");
+                $sth->bindParam(':username', $_POST['username']);
+                $sth->execute();
+                $row = $sth->fetch(PDO::FETCH_ASSOC);
+                $passeword = $row['pswd'];
 
-            if (isset($_POST['username']) && isset($_POST['password'])) {
-                
-                $username = $_POST['username'];
-                $password = $_POST['password'];
-
-                $sql = "SELECT * FROM users WHERE username = :username";
-                $stmt = $pdo->prepare($sql);
-                $stmt->execute(['username' => $username]);
-                $user = $stmt->fetch();
-
-                if ($user && password_verify($password, $user['password'])) {
-                    session_start();
-                    $_SESSION['user_id'] = $user['id'];
-                    //header('Location: dashboard.php');
+                if ($_POST['pswd'] === $passeword) {
+                    $_SESSION['username'] = $row['username'];
+                    //echo "<script>alert('Bienvenue !');</script>";
+                    header('Location: index.php');
                 } else {
                     $message = 'Les informations envoyées ne permettent pas de vous identifier.';
                 }
-            }
-
-            // redirectToUrl('index.php');
+            }*/
             ?>
             </div>
             <p class="invitation-session">Pas de compte ? <a href="signup.php" class="lien-session">Inscrivez-vous</a></p>
