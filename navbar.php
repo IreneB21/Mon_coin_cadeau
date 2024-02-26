@@ -1,6 +1,6 @@
 <ul>
     <li><a href="./index.php">Accueil</a></li>
-    <li><a href="#">Mes listes</a></li>
+    <li><a href="mesListes.php">Mes listes</a></li>
     <!-- if (isset($loggedUser)) : ?>
         <li><a href="dashboard.php">Mon espace personnel</a></li>
     ?php else : ?>

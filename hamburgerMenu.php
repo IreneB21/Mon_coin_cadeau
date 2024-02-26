@@ -1,6 +1,5 @@
-<div class="navbar">
+<div>
     <input type="checkbox" id="controlMenu" checked>
-    <span class="barre barre-une"></span>
-    <span class="barre barre-deux"></span>
-    <span class="barre barre-trois"></span>
+    <i class="fa-solid fa-bars" id="openMenu"></i>
+    <i class="fa-solid fa-xmark" id="closeMenu"></i>
 </div>

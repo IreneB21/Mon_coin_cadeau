@@ -122,7 +122,7 @@ header {
     top: 0;
     height: 100%;
     left: -220px;
-    border-right: 2px solid #222;
+    border-right: 0.4px solid #222;
     transition: left .5s ease, top .5s ease;
     padding-top: 16%;
     background-color: rgba(237,235,232,0.5);
@@ -140,74 +140,41 @@ header {
     }
     li:hover {
         font-size: 1.4em;
+        color: #284B63;
     }
 }
 
-.navbar {
-    position: relative;
-    border: 0.8px solid black;
-    background-color: #2A3D45;
-    padding: 8.5px;
-    transition: 0.5s;
-    border-radius: 54px;
-    overflow: hidden;
+#controlMenu {
+    position: fixed;
     z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.navbar input {
-    width: 30px;
-    height: 30px;
     cursor: pointer;
+    scale: 1.4;
     opacity: 0;
 }
 
-.barre {
-    position: absolute;
-    display: block;
-    left: 10px;
-    width: 28px;
-    height: 2px;
-    border-radius: 50px;
-    background-color: #6EF9F5;
-    pointer-events: none;
-    transition: 0.5s;
-}
-
-.barre-une {
-    left: 10px;
-    top: 32%;
-    transform: rotate(-45deg);
-}
-
-.barre-deux {
-    left: 10px;
-    top: 50%;
-    opacity: 0;
-}
-
-.barre-trois {
-    left: 10px;
-    top: 68%;
-    transform: rotate(45deg);
-}
-
-.navbar input:checked ~ span {
-    background-color: #E5ECF4;
-}
-
-.navbar input:checked ~ span:nth-child(2) {
-    transform: rotate(0deg);
-}
-
-.navbar input:checked ~ span:nth-child(3) {
+#openMenu {
+    position: fixed;
+    top: 24px;
+    left: 16px;
+    z-index: 99;
+    font-size: 1.9rem;
     opacity: 1;
+    transition: transform 0.8s;
 }
 
-.navbar input:checked ~ span:nth-child(4) {
-    transform: rotate(0deg);
+#closeMenu {
+    position: fixed;
+    top: 24px;
+    left: 16px;
+    z-index: 99;
+    font-size: 1.9rem;
+    opacity: 0;
+    transition: transform 0.8s;
+}
+
+#controlMenu:hover ~ i {
+    transform: scale(1.2);
+    color: #284B63;
 }
 
 /*      LANDINGPAGE     */ 
@@ -247,7 +214,6 @@ header {
     width: 111px;
     background-color: #FAE1DF;
     border-radius: 33% 67% 71% 29% / 30% 17% 83% 70%;
-    /*box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;*/
     position: absolute;
     top: -8px;
     left: 132px;
@@ -725,6 +691,146 @@ form button {
     background-size: 1400px;
     background-repeat: no-repeat;
     background-position: -280px -340px;
+}
+
+/*      MES LISTES     */
+
+.page-creation-liste {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: auto;
+    align-items: center;
+    position: relative;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.presentation-creation-liste {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: auto;
+    align-items: center;
+}
+
+.bulle.trente-trois {
+    height: 245px;
+    width: 231px;
+    background-color: #FFC6AC;
+    border-radius: 53% 47% 30% 70% / 83% 54% 46% 17%;
+    position: absolute;
+    top: 116px;
+    right: 56px;
+    transition: border-radius 0.4s ease-in-out;
+    &:hover {
+        border-radius: 57% 43% 41% 59% / 62% 45% 55% 38%;
+    }
+}
+
+.bulle.trente-quatre {
+    height: 87px;
+    width: 92px;
+    background-color: #9EA3B0;
+    border-radius: 32% 68% 65% 35% / 23% 39% 61% 77%;
+    position: absolute;
+    top: 74px;
+    right: 132px;
+    transition: border-radius 0.4s ease-in-out;
+    &:hover {
+        border-radius: 57% 43% 41% 59% / 62% 45% 55% 38%;
+    }
+}
+
+.bulle.trente-cinq {
+    height: 135px;
+    width: 119px;
+    background-color: #C6DCBA;
+    border-radius: 86% 14% 71% 29% / 100% 31% 69% 0%;
+    position: absolute;
+    top: 300px;
+    right: 96px;
+    transition: transform 0.4s ease-in-out;
+    &:hover {
+        transform: scale(1.2);
+    }
+}
+
+.bulle.trente-six {
+    height: 100px;
+    width: 150px;
+    background-color: #BBCDE5;
+    border-radius: 31% 69% 49% 51% / 33% 77% 23% 67%;
+    position: absolute;
+    top: 740px;
+    left: 32px;
+    transform: border-radius 0.4s ease-in-out;
+    &:hover {
+        border-radius: 86% 14% 71% 29% / 100% 31% 69% 0%;
+    }
+}
+
+.bulle.trente-sept-satellites {
+    height: 87px;
+    width: 92px;
+    background-color: #E1E8EB;
+    border-radius: 32% 68% 65% 35% / 23% 39% 61% 77%;
+    position: absolute;
+    top: 132px;
+    left: 48px;
+    transition: top 0.8s ease-in-out, left 0.8s ease-in-out;
+}
+
+.bulle.trente-sept {
+    height: 598px;
+    width: 486px;
+    background-color: #F0F3FF;
+    border-radius: 39% 61% 78% 22% / 33% 37% 63% 67%;
+    position: absolute;
+    top: 64px;
+    left: -248px;
+}
+
+.bulle.trente-huit {
+    height: 125px;
+    width: 123px;
+    background-color: #BBCDE5;
+    border-radius: 85% 15% 59% 41% / 74% 47% 53% 26%;
+    position: absolute;
+    top: 340px;
+    right: -132px;
+    transition: border-radius 0.8s ease-in-out;
+    &:hover {
+        border-radius: 41% 59% 47% 53% / 29% 67% 33% 71%;
+    }
+}
+
+.bulle.trente-neuf {
+    height: 125px;
+    width: 123px;
+    background-color: #BBCDE5;
+    border-radius: 85% 15% 59% 41% / 74% 47% 53% 26%;
+    position: absolute;
+    top: 340px;
+    right: -132px;
+    transition: border-radius 0.8s ease-in-out;
+    &:hover {
+        border-radius: 41% 59% 47% 53% / 29% 67% 33% 71%;
+    }
+}
+
+.bulle.quarante {
+    height: 125px;
+    width: 123px;
+    background-color: #BBCDE5;
+    border-radius: 85% 15% 59% 41% / 74% 47% 53% 26%;
+    position: absolute;
+    top: 340px;
+    right: -132px;
+    transition: border-radius 0.8s ease-in-out;
+    &:hover {
+        border-radius: 41% 59% 47% 53% / 29% 67% 33% 71%;
+    }
 }
 
 /*      FOOTER     */ 
