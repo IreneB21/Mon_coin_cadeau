@@ -100,3 +100,5 @@ require ('databaseConnect.php');
         </main>
     </div>
 </body>
+
+</html>

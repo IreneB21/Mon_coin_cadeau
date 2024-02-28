@@ -2,6 +2,10 @@
 session_start();
 require_once(__DIR__ . '/functions.php');
 require ('databaseConnect.php');
+
+$retrieveUserLists = $dbco->prepare("SELECT l.title FROM users u, listes l WHERE u.username = l.author");
+$retrieveUserLists-> execute();
+$listsAuthor = $retrieveUserLists->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +17,7 @@ require ('databaseConnect.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Mon Coin Cadeau - Mes listes</title>
+    <title>Mon Coin Cadeau - Espace personnel</title>
 
     <!-- google font and icons links -->
 
@@ -48,7 +52,7 @@ require ('databaseConnect.php');
             </div>
         </header>
 
-        <main class="page-creation-liste">
+        <main class="page-espace-perso">
             <div class="bulle trente-trois"></div>
             <div class="bulle trente-quatre"></div>
             <div class="bulle trente-cinq"></div>
@@ -56,20 +60,48 @@ require ('databaseConnect.php');
             <div class="bulle trente-sept-satellites" id="sat-un"></div>
             <div class="bulle trente-sept-satellites" id="sat-deux"></div>
             <div class="bulle trente-sept-satellites" id="sat-trois"></div>
+            <div class="bulle trente-sept-satellites" id="sat-quatre"></div>
+            <div class="bulle trente-sept-satellites" id="sat-cinq"></div>
             <div id="bulle-trente-sept" class="bulle trente-sept"></div>
             <div class="bulle trente-huit"></div>
             <div class="bulle trente-neuf"></div>
             <div class="bulle quarante"></div>
 
-            <section class="presentation-creation-liste">
-                <h1>Bienvenue dans votre coin listes</h1>
+            <section class="presentation-espace-perso">
+                <h1>Bienvenue dans votre espace personnel</h1>
                 <p>Ici, vous pouvez donner libre cours à vos envies et réaliser celles de vos proches, dire aux autres comment vous faire plaisir ou couvrir de cadeaux vos amis. 
                     Mariage, anniversaire, baptême, pot de départ... Toutes les occasions sont bonnes pour créer une liste d'envies. Vous pourrez en créer jusqu'à dix et les partager avec qui vous voulez !
                 </p>
+                <div class="scroll" onclick="scroll(0, 600);">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
             </section>
 
-            <section class="section-creation-liste">
-                <?php ?>
+            <section class="section-listes">
+                <h1>Vos listes</h1>
+                <?php if ($listsAuthor !== []) : ?>
+                    <?php foreach ($listsAuthor as $list) : ?>
+                        <div class="container-list">
+                            <img src="" alt="">
+                            <h3><?php echo($list); ?></h3>
+                            <i class="fa-solid fa-chevron-down"></i>
+                            <div class="affichage-items">
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                    <a class="cta" href="createList.php">Créer une nouvelle liste</a>
+                <?php else : ?>
+                    <div class="container-no-list">
+                        <p>Vous n'avez pas encore de listes. <br>Mais pas de panique, c'est le moment de créer votre première !</p>
+                        <a class="cta" href="createList.php">C'est parti</a>
+                    </div>   
+                <?php endif; ?>
+            </section>
+
+            <section class="info-user">
+                <h2>Vos informations personnelles</h2>
+                <div>
+                </div>
             </section>
         </main>
 

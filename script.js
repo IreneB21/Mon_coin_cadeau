@@ -24,6 +24,8 @@ bulle.addEventListener('mouseover', function(event) {
   document.getElementById('sat-un').setAttribute('style','left:164px;top:32px');
   document.getElementById('sat-deux').setAttribute('style','left:240px;top:100px');
   document.getElementById('sat-trois').setAttribute('style','left:300px;top:332px');
+  document.getElementById('sat-quatre').setAttribute('style','left:56px;top:732px');
+  document.getElementById('sat-cinq').setAttribute('style','left:148px;top:540px');
 });
 
 bulle.addEventListener('mouseout', (event) =>{
@@ -31,4 +33,6 @@ bulle.addEventListener('mouseout', (event) =>{
   document.getElementById('sat-un').setAttribute('style','left:48px;top:132px');
   document.getElementById('sat-deux').setAttribute('style','left:48px;top:132px');
   document.getElementById('sat-trois').setAttribute('style','left:48px;top:132px');
+  document.getElementById('sat-quatre').setAttribute('style','left:48px;top:132px');
+  document.getElementById('sat-cinq').setAttribute('style','left:48px;top:132px');
 });

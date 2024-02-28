@@ -1,20 +1,19 @@
 <?php
 
-const MYSQL_HOST = 'localhost';
-const MYSQL_PORT = 3306;
-const MYSQL_NAME = 'liste_envies';
-const MYSQL_USER = 'root';
-const MYSQL_PASSWORD = '';
+$servername = 'localhost';
+$database = 'liste_envies';
+$user = 'root';
+$pass = '';
+
+$options = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES   => false,
+];
 
 try {
-    $mysqlClient = new PDO(
-        sprintf('mysql:host=%s;dbname=%s;port=%s;charset=utf8', MYSQL_HOST, MYSQL_NAME, MYSQL_PORT),
-        MYSQL_USER,
-        MYSQL_PASSWORD
-    );
-    $mysqlClient->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (Exception $exception) {
-    die('Erreur : ' . $exception->getMessage());
+    $dbco = new PDO("mysql:host=$servername;dbname=$database", $user, $pass, $options);
+} catch (\PDOException $e) {
+    throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
-
 ?>
