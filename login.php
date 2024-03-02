@@ -1,17 +1,7 @@
 <?php
 session_start();
 require_once(__DIR__ . '/functions.php');
-require ('databaseConnect.php');
-
-/*setcookie(
-    'LOGGED_USER',
-    'utilisateur@exemple.com',
-    [
-        'expires' => time() + 365*24*3600,
-        'secure' => true,
-        'httponly' => true,
-    ]
-);*/
+require_once(__DIR__ .'/databaseConnect.php');
 ?>
 
 <!DOCTYPE html>
@@ -52,7 +42,7 @@ require ('databaseConnect.php');
     <div class="bulle vingt"></div>
     <div class="bulle vingt-et-un"></div>
 
-    <div id="content-wrap-session">
+    <div id="content-wrap-session">    
         <header>
             <?php require_once(__DIR__ . '/hamburgerMenu.php'); ?>
             <div>
@@ -61,41 +51,44 @@ require ('databaseConnect.php');
         </header>
 
         <main>
-            <form action="postLogin.php" method="POST">
+            <div class="traitement-formulaire">
+            <?php
+                if (isset($_POST['username']) && isset($_POST['pswd'])) {
+                    $username = htmlspecialchars($_POST['username']); 
+                    $pswd = htmlspecialchars($_POST['pswd']);
+
+                    $loginStatement = $dbco->prepare("SELECT username FROM users WHERE username = :username AND pswd = :pswd");
+                    $loginStatement->bindParam(':username', $username);
+                    $loginStatement->bindParam(':pswd', $pswd);
+                    $loginStatement->execute();
+                    $fetch = $loginStatement->fetch(PDO::FETCH_ASSOC);
+
+                    if (isset($fetch['username'])) {
+                        $user = $fetch['username'];
+    
+                        $_SESSION['LOGGED_USER'] = [
+                            'user_name' => $user,
+                        ];
+                        header('Location: index.php');
+                    } else {
+                        echo "<p>Les informations envoyées ne permettent pas de vous identifier.</p>";
+                    }
+                }
+                ?>
+            </div>
+            <form action="#" method="POST">
                 <div>
                     <label for="username">Nom d'utilisateur</label>
                     <input type="text" id="username" name="username" aria-describedby="username-help" required>
                     <p id="username-help">L'identifiant utilisé lors de la création du compte.</p>
                 </div>
                 <div>
-                    <label for="password">Mot de passe</label>
-                    <input type="password" id="password" name="password" required>
+                    <label for="pswd">Mot de passe</label>
+                    <input type="password" id="pswd" name="pswd" required>
                 </div>
                 <button type="submit" class="btn-session">Me connecter</button>
             </form>
-            <div class="traitement-formulaire">
-            <?php
-            /*if (isset($_POST['username']) && isset($_POST['pswd'])) {
-                //$username = htmlspecialchars($_POST['username']); 
-                //$pswd = htmlspecialchars($_POST['pswd']);
-                $message = '';
-
-                $sth = $dbco->prepare("SELECT * FROM users WHERE username = :username");
-                $sth->bindParam(':username', $_POST['username']);
-                $sth->execute();
-                $row = $sth->fetch(PDO::FETCH_ASSOC);
-                $passeword = $row['pswd'];
-
-                if ($_POST['pswd'] === $passeword) {
-                    $_SESSION['username'] = $row['username'];
-                    //echo "<script>alert('Bienvenue !');</script>";
-                    header('Location: index.php');
-                } else {
-                    $message = 'Les informations envoyées ne permettent pas de vous identifier.';
-                }
-            }*/
-            ?>
-            </div>
+            
             <p class="invitation-session">Pas de compte ? <a href="signup.php" class="lien-session">Inscrivez-vous</a></p>
         </main>
     </div>
