@@ -46,9 +46,7 @@ $listsAuthor = $retrieveUserLists->fetchAll(PDO::FETCH_ASSOC);
                 <img src="./images/logo.png" alt="" class="logo">
             </div>
             <div class="container-session">
-                <a class="cta-session login" href="login.php">Connexion</a>
-                <a class="cta-session signup" href="signup.php">M'inscrire</a>
-                <!-- afficher bouton Déconnexion si utilisateur connecté -->
+                <?php require_once(__DIR__ . '/ctaSession.php'); ?>
             </div>
         </header>
 
