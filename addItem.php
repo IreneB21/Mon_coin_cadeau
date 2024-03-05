@@ -50,7 +50,9 @@ require_once(__DIR__ .'/databaseConnect.php');?>
     </header>
 
     <main>
-        
+        <form action="#" method="POST" class="id-creation-list">
+           
+        </form>
     </main>
     </div>
 </body>

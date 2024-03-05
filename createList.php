@@ -74,26 +74,53 @@ require_once(__DIR__ .'/databaseConnect.php');?>
                 <label for="list-description">Texte d'introduction</label>
                 <textarea id="list-description" name="list-description" placeholder="Écrivez quelques mots pour présenter votre liste"></textarea>
             </div>
-            <div class="list-form-inputs">
+            <!--<div class="list-form-inputs">
                 <p>Paramètres de votre liste</p>
                 <div class="toggle-switch">
                     <p>Mode surprise</p>
                     <label class="switch">
-                        <input type="checkbox" />
+                        <input type="checkbox" name="surprise" value="surprise" />
                         <span></span>
                     </label>
                 </div>
                 <div class="toggle-switch">
                     <p>Participants anonymes</p>
                     <label class="switch">
-                        <input type="checkbox" />
+                        <input type="checkbox" name="anonymous" value="anonymous" />
                         <span></span>
                     </label>
                 </div>
-            </div>
+            </div> -->
             <p>Et voilà, vous pouvez maintenant valider votre liste !</p>
             <button type="submit" class="cta">Je crée ma liste</button>
         </form>
+        <?php
+        if (isset($_POST['list-title']) && isset($_POST['list-type']) && isset($_POST['list-description'])/* && isset($_POST['surprise']) && isset($_POST['anonymous'])*/) {
+            $title = $_POST['list-title'];
+            $author = $_SESSION['LOGGED_USER']['user_name'];
+            $type = $_POST['list-type'];
+            $description = $_POST['list-description'];
+
+            /*if (isset ($_POST['surprise'])) {
+                $mode = $_POST['surprise'];
+            }
+
+            if (isset ($_POST['anonymous'])) {
+                $participants = $_POST['anonymous'];
+            }*/
+
+            $addNewList = $dbco->prepare('INSERT INTO listes (title, author, list_type, description) VALUES (:title, :author, :list_type, :list_description)');
+            $addNewList->bindParam(':title', $title);
+            $addNewList->bindParam(':author', $author);
+            $addNewList->bindParam(':list_type', $type);
+            $addNewList->bindParam(':list_description', $description);
+            //$addNewList->bindParam(':mode', $mode);
+            //$addNewList->bindParam(':participants', $participants);
+            $addNewList->execute();
+
+            header('Location: espacePersonnel.php');
+        }
+        ?>
     </main>
     </div>
 </body>
