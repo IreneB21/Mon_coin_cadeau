@@ -3,7 +3,9 @@ session_start();
 require_once(__DIR__ . '/functions.php');
 require ('databaseConnect.php');
 
-$retrieveUserLists = $dbco->prepare("SELECT l.title FROM users u, listes l WHERE u.username = l.author");
+$retrieveUserLists = $dbco->prepare("SELECT l.title, l.description 
+                                    FROM listes l
+                                    WHERE l.author = '" . "Nico" . "'");
 $retrieveUserLists-> execute();
 $listsAuthor = $retrieveUserLists->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -81,7 +83,8 @@ $listsAuthor = $retrieveUserLists->fetchAll(PDO::FETCH_ASSOC);
                     <?php foreach ($listsAuthor as $list) : ?>
                         <div class="container-list">
                             <img src="" alt="">
-                            <h3><?php echo($list); ?></h3>
+                            <h3><?php echo($list['title']); ?></h3>
+                            <p class="text-description-list"><?php echo($list['description']); ?></p>
                             <i class="fa-solid fa-chevron-down"></i>
                             <div class="affichage-items">
                             </div>
