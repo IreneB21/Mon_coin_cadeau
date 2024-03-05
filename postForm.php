@@ -22,17 +22,11 @@ try{
     $sth->bindParam(':username', $username);
     $sth->bindParam(':pswd', $pswd);
     $sth->execute();
-
-    //echo "Inscription réussie ! Bienvenue parmi nous !"
 }
 
 catch(PDOException $e){
     echo "Erreur lors de l\'inscription. Erreur : " . $e->getMessage();
 }
-?>
-<?php
-
-// header("Location:form-merci.html");
 ?>
 
 <!DOCTYPE html>
@@ -85,8 +79,8 @@ catch(PDOException $e){
             <h3>Inscription réussie ! Bienvenue parmi nous !</h3>
             <p>Vous pouvez maintenant : <br>
              - créer et modifier vos propres listes ; <br>
-             - réserver un article d'une liste pour l'offrir ; <br>
-             - et poster des commentaires. <br>
+             - offrir ou participer à l'achat de l'article d'une liste ; <br>
+             - poster des commentaires. <br>
             Il ne vous reste plus qu'à vous <a href="login.php" class="lien-session">connecter</a> pour profiter de toutes ces fonctionnalités.
             </p>
         </div>
