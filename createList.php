@@ -1,7 +1,35 @@
 <?php
 session_start();
 require_once(__DIR__ . '/functions.php');
-require_once(__DIR__ .'/databaseConnect.php');?>
+require_once(__DIR__ .'/databaseConnect.php');
+
+if (isset($_POST['list-title']) && isset($_POST['list-type']) && isset($_POST['list-description'])/* && isset($_POST['surprise']) && isset($_POST['anonymous'])*/) {
+    $title = $_POST['list-title'];
+    $author = $_SESSION['LOGGED_USER']['user_name'];
+    $type = $_POST['list-type'];
+    $description = $_POST['list-description'];
+
+    /*if (isset ($_POST['surprise'])) {
+        $mode = $_POST['surprise'];
+    }
+
+    if (isset ($_POST['anonymous'])) {
+        $participants = $_POST['anonymous'];
+    }*/
+
+    $addNewList = $dbco->prepare('INSERT INTO listes (title, author, list_type, description) VALUES (:title, :author, :list_type, :list_description)');
+    $addNewList->bindParam(':title', $title);
+    $addNewList->bindParam(':author', $author);
+    $addNewList->bindParam(':list_type', $type);
+    $addNewList->bindParam(':list_description', $description);
+    //$addNewList->bindParam(':mode', $mode);
+    //$addNewList->bindParam(':participants', $participants);
+    $addNewList->execute();
+
+    header('Location: espacePersonnel.php');
+}
+?>
+
 <!DOCTYPE html>
 
 <html lang="fr">
@@ -95,31 +123,7 @@ require_once(__DIR__ .'/databaseConnect.php');?>
             <button type="submit" class="cta">Je crée ma liste</button>
         </form>
         <?php
-        if (isset($_POST['list-title']) && isset($_POST['list-type']) && isset($_POST['list-description'])/* && isset($_POST['surprise']) && isset($_POST['anonymous'])*/) {
-            $title = $_POST['list-title'];
-            $author = $_SESSION['LOGGED_USER']['user_name'];
-            $type = $_POST['list-type'];
-            $description = $_POST['list-description'];
-
-            /*if (isset ($_POST['surprise'])) {
-                $mode = $_POST['surprise'];
-            }
-
-            if (isset ($_POST['anonymous'])) {
-                $participants = $_POST['anonymous'];
-            }*/
-
-            $addNewList = $dbco->prepare('INSERT INTO listes (title, author, list_type, description) VALUES (:title, :author, :list_type, :list_description)');
-            $addNewList->bindParam(':title', $title);
-            $addNewList->bindParam(':author', $author);
-            $addNewList->bindParam(':list_type', $type);
-            $addNewList->bindParam(':list_description', $description);
-            //$addNewList->bindParam(':mode', $mode);
-            //$addNewList->bindParam(':participants', $participants);
-            $addNewList->execute();
-
-            header('Location: espacePersonnel.php');
-        }
+        
         ?>
     </main>
     </div>

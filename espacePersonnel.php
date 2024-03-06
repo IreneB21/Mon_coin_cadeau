@@ -5,7 +5,7 @@ require ('databaseConnect.php');
 
 $retrieveUserLists = $dbco->prepare("SELECT l.title, l.description 
                                     FROM listes l
-                                    WHERE l.author = '" . "Nico" . "'");
+                                    WHERE l.author = '" . $_SESSION['LOGGED_USER']['user_name'] . "'");
 $retrieveUserLists-> execute();
 $listsAuthor = $retrieveUserLists->fetchAll(PDO::FETCH_ASSOC);
 ?>

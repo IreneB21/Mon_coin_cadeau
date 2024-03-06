@@ -49,7 +49,11 @@ session_start();
             <div class="présentation">
                 <h1>Le site pour <br>(se) faire plaisir</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <a href="#" class="cta">C'est parti</a>
+                <?php if (isset($_SESSION['LOGGED_USER'])) : ?>
+                    <a href="espacePersonnel.php" class="cta">C'est parti</a>
+                <?php else : ?>
+                    <a href="login.php" class="cta">C'est parti</a>
+                <?php endif ; ?>
             </div>
             <div class="scroll" onclick="scroll(0, 600);">
                 <i class="fa-solid fa-chevron-down"></i>
@@ -69,7 +73,11 @@ session_start();
             <div class="explications">
                 <h1>Pour démarrer, rien de plus facile</h1>
                 <p>Expliquer fonctionnement liste, comment en créer une, le but, possibilité de partager... Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <a href="#" class="cta">C'est parti</a> <!-- Renvoie vers page de connexion ou de création de liste en fonction des cas -->
+                <?php if (!isset($_SESSION['LOGGED_USER'])) : ?>
+                    <a href="espacePersonnel.php" class="cta">C'est parti</a>
+                <?php else : ?>
+                    <a href="login.php" class="cta">C'est parti</a>
+                <?php endif ; ?>
             </div>
             <div class="box-bulles">
                 <div class="bulle huit"></div>

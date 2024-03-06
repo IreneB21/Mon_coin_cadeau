@@ -824,6 +824,11 @@ form button {
     border-radius: 64px;
     background-color: #F0F3FF;
     box-sizing: border-box;
+    margin-bottom: 32px;
+}
+
+.text-description-list {
+    text-align: start;
 }
 
 .info-user {
