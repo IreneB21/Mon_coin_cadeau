@@ -61,13 +61,13 @@ if (isset($_POST['list-title']) && isset($_POST['list-type']) && isset($_POST['l
         <?php require_once(__DIR__ . '/navbar.php'); ?>
     </nav>
 
-    <div class="bulle quinze"></div>
-    <div class="bulle seize"></div>
-    <div class="bulle dix-sept"></div>
-    <div class="bulle dix-huit"></div>
-    <div class="bulle dix-neuf"></div>
-    <div class="bulle vingt"></div>
-    <div class="bulle vingt-et-un"></div>
+    <div class="bulle quarante-et-un"></div>
+    <div class="bulle quarante-deux"></div>
+    <div class="bulle quarante-trois"></div>
+    <div class="bulle quarante-quatre"></div>
+    <div class="bulle quarante-cinq"></div>
+    <div class="bulle quarante-six"></div>
+    <div class="bulle quarante-sept"></div>
 
     <div id="content-wrap-session">
     <header>
@@ -120,7 +120,7 @@ if (isset($_POST['list-title']) && isset($_POST['list-type']) && isset($_POST['l
                 </div>
             </div> -->
             <p>Et voilà, vous pouvez maintenant valider votre liste !</p>
-            <button type="submit" class="cta">Je crée ma liste</button>
+            <button type="submit" class="cta cta-list-creation">Je crée ma liste</button>
         </form>
         <?php
         

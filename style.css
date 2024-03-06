@@ -469,7 +469,6 @@ form button {
 }
 
 .invitation-session {
-    margin-bottom: 20%;
     margin-top: 2%;
 }
 
@@ -495,6 +494,7 @@ form button {
 #content-wrap-session {
     position: relative;
     backdrop-filter: blur(8px);
+    padding-bottom: 18%;
 }
 
 .bulle.quinze {
@@ -844,6 +844,76 @@ form button {
 
 /*      PAGE CRÉATION LISTE     */ 
 
+.bulle.quarante-et-un {
+    height: 100px;
+    width: 117px;
+    background-color: #F7B2AD;
+    border-radius: 11% 89% 60% 40% / 19% 40% 60% 81%;
+    position: absolute;
+    bottom: -20%;
+    left: 40px;
+}
+
+.bulle.quarante-deux {
+    height: 87px;
+    width: 92px;
+    background-color: #9EA3B0;
+    border-radius: 32% 68% 65% 35% / 23% 39% 61% 77%;
+    position: absolute;
+    bottom: 3%;
+    right: 32px;
+}
+
+.bulle.quarante-trois {
+    height: 59px;
+    width: 66px;
+    background-color: #3FACBB;
+    border-radius: 78% 22% 48% 52% / 39% 49% 51% 61%;
+    position: absolute;
+    bottom: -34%;
+    right: 332px;
+}
+
+.bulle.quarante-quatre {
+    height: 86px;
+    width: 92px;
+    background-color: #639FAB;
+    border-radius: 100% 0% 79% 21% / 33% 39% 61% 67%;
+    position: absolute;
+    bottom: 4%;
+    left: -32px;
+}
+
+.bulle.quarante-cinq {
+    height: 106px;
+    width: 109px;
+    background-color: #F7B2AD;
+    border-radius: 38% 62% 79% 21% / 33% 39% 61% 67%;
+    position: absolute;
+    top: 188px;
+    right: -32px;
+}
+
+.bulle.quarante-six {
+    height: 67px;
+    width: 69px;
+    background-color: #9EA3B0;
+    border-radius: 58% 42% 54% 46% / 33% 39% 61% 67%;
+    position: absolute;
+    top: 64px;
+    left: 532px;
+}
+
+.bulle.quarante-sept {
+    height: 67px;
+    width: 69px;
+    background-color: #FDFFAB;
+    border-radius: 58% 42% 54% 46% / 33% 39% 61% 67%;
+    position: absolute;
+    top: 64px;
+    left: 532px;
+}
+
 #container-creation-list {
     display: flex;
     flex-direction: column;
@@ -864,11 +934,20 @@ form button {
 #list-type {
     width: 130%;
     height: 32px;
+    border-radius: 8px;
 }
 
 #list-description {
     width: 130%;
     height: 132px;
+    border-radius: 8px;
+}
+
+#list-type {
+    background-color: white;
+    &:hover {
+        background-color: #E2E2E2;
+    }
 }
 
 .switch {
@@ -924,6 +1003,10 @@ form button {
     display: flex;
     width: 100%;
     justify-content: space-between;
+}
+
+.cta-list-creation {
+    width: 46%;
 }
 
 /*      PAGE CRÉATION ITEM     */ 
