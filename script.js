@@ -47,3 +47,10 @@ if (createItemIcon !== null) {
   });
 }
  
+// Affichage items d'une liste (espace personnel)
+
+const seeItems = document.getElementsByClassName('see-more');
+
+if (seeItems !== null) {
+  
+}

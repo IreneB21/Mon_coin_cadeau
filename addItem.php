@@ -1,7 +1,25 @@
 <?php
 session_start();
 require_once(__DIR__ . '/functions.php');
-require_once(__DIR__ .'/databaseConnect.php');?>
+require_once(__DIR__ .'/databaseConnect.php');
+
+if (isset($_POST['item-title']) && isset($_POST['item-link']) && isset($_POST['item-description']) && isset($_POST['item-price'])) {
+    $title = $_POST['item-title'];
+    $link = $_POST['item-link'];
+    $price = $_POST['item-price'];
+    $informations = $_POST['item-description'];
+
+    $addNewItem = $dbco->prepare('INSERT INTO list_items (item_name, link, price, informations) VALUES (:title, :link, :price, :informations)');
+    $addNewItem->bindParam(':title', $title);
+    $addNewItem->bindParam(':link', $link);
+    $addNewItem->bindParam(':price', $price);
+    $addNewItem->bindParam(':informations', $informations);
+    $addNewItem->execute();
+
+    header('Location: espacePersonnel.php');
+}
+?>
+
 <!DOCTYPE html>
 
 <html lang="fr">
@@ -50,8 +68,29 @@ require_once(__DIR__ .'/databaseConnect.php');?>
     </header>
 
     <main>
-        <form action="#" method="POST" class="id-creation-list">
-           
+        <form action="#" method="POST" id="container-creation-item">
+            <h2 id="container-title" >Ajouter un article à votre liste :</h2>
+            <div class="item-form-inputs">
+                <label for="item-title">Nom de l'article</label>
+                <input type="text" id="item-title" name="item-title" placeholder="N'hésitez pas à choisir un titre descriptif">
+            </div>
+            <div class="item-form-inputs">
+                <label for="item-link">Lien de l'article</label>
+                <input type="text" id="item-link" name="item-link">
+            </div>
+            <div class="item-form-inputs">
+                <label for="item-description">Informations complémentaires</label>
+                <textarea id="item-description" name="item-description" placeholder="Ex : Taille L, couleur beige..."></textarea>
+            </div>
+            <div class="item-form-inputs">
+                <label for="item-price">Prix indicatif</label>
+                <input type="text" id="item-price" name="item-price">
+            </div>
+            <!--<div class="item-form-inputs">
+                <label for="item-illustration">Illustration</label>
+                <textarea id="item-illustration" name="item-illustration"></textarea>
+            </div> -->
+            <button type="submit" class="cta cta-item-creation">Ajouter l'article</button>
         </form>
     </main>
     </div>
