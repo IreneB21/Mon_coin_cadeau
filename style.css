@@ -812,7 +812,7 @@ form button {
     width: 100%;
     padding: 3%;
     padding-top: 5%;;
-    border-radius: 64px;
+    border-radius: 56px;
     background-color: #F0F3FF;
     box-sizing: border-box;
 }
@@ -821,7 +821,7 @@ form button {
     display: grid;
     width: 100%;
     padding: 3%;
-    border-radius: 64px;
+    border-radius: 56px;
     background-color: #F0F3FF;
     box-sizing: border-box;
     margin-bottom: 32px;
@@ -829,6 +829,45 @@ form button {
 
 .text-description-list {
     text-align: start;
+}
+
+.see-more {
+    font-size: x-large;
+    cursor: pointer;
+    transition: transform 0.3s ease-in;
+    &:hover {
+        transform: scale(1.2);
+    }
+}
+
+.affichage-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    margin-top: 24px;
+}
+
+.box-item {
+    background-color: #FEFEFE;
+    height: 320px;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+.add-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-item:hover {
+    background-color: #FAFAFA;
+}
+
+.add-item-icon {
+    font-size: xxx-large;
+    cursor: pointer;
+    color: #607274;
 }
 
 .info-user {

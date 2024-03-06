@@ -73,7 +73,7 @@ session_start();
             <div class="explications">
                 <h1>Pour démarrer, rien de plus facile</h1>
                 <p>Expliquer fonctionnement liste, comment en créer une, le but, possibilité de partager... Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <?php if (!isset($_SESSION['LOGGED_USER'])) : ?>
+                <?php if (isset($_SESSION['LOGGED_USER'])) : ?>
                     <a href="espacePersonnel.php" class="cta">C'est parti</a>
                 <?php else : ?>
                     <a href="login.php" class="cta">C'est parti</a>

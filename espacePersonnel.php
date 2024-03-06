@@ -85,8 +85,16 @@ $listsAuthor = $retrieveUserLists->fetchAll(PDO::FETCH_ASSOC);
                             <img src="" alt="">
                             <h3><?php echo($list['title']); ?></h3>
                             <p class="text-description-list"><?php echo($list['description']); ?></p>
-                            <i class="fa-solid fa-chevron-down"></i>
+                            <i class="fa-solid fa-chevron-down see-more"></i>
                             <div class="affichage-items">
+                                <a href="addItem.php">
+                                    <div class="box-item add-item">
+                                        <i class="fa-solid fa-plus add-item-icon"></i>
+                                    </div>
+                                </a>
+                                <?php //foreach ($items as $item) ; ?>
+                                    <div class="box-item"></div>
+                                <?php //endforeach ; ?>
                             </div>
                         </div>
                     <?php endforeach; ?>
