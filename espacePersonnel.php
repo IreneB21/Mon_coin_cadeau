@@ -64,8 +64,6 @@ $listsAuthor = $retrieveUserLists->fetchAll(PDO::FETCH_ASSOC);
             <div class="bulle trente-sept-satellites" id="sat-cinq"></div>
             <div id="bulle-trente-sept" class="bulle trente-sept"></div>
             <div class="bulle trente-huit"></div>
-            <div class="bulle trente-neuf"></div>
-            <div class="bulle quarante"></div>
 
             <section class="presentation-espace-perso">
                 <h1>Bienvenue dans votre espace personnel</h1>
@@ -107,10 +105,21 @@ $listsAuthor = $retrieveUserLists->fetchAll(PDO::FETCH_ASSOC);
                 <?php endif; ?>
             </section>
 
+            <div class="bulle trente-neuf"></div>
+            <div class="bulle quarante"></div>
+            <div class="bulle quarante-huit"></div>
+            <div class="bulle quarante-neuf"></div>
+            <div class="bulle cinquante"></div>
+            <div class="bulle cinquante-et-un"></div>
+            <div class="bulle cinquante-deux"></div>
+
             <section class="info-user">
                 <h2>Vos informations personnelles</h2>
-                <div>
+                <div class="info-summary">
+                    <p>Identifiant : <?php echo $_SESSION['LOGGED_USER']['user_name']; ?></p>
+                    <p>Email : <?php echo $_SESSION['LOGGED_USER']['user_email']; ?></p>
                 </div>
+                <a class="cta" href="#">Modifier</a>
             </section>
         </main>
 

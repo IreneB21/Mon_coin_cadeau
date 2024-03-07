@@ -57,17 +57,24 @@ require_once(__DIR__ .'/databaseConnect.php');
                     $username = htmlspecialchars($_POST['username']); 
                     $pswd = htmlspecialchars($_POST['pswd']);
 
-                    $loginStatement = $dbco->prepare("SELECT username FROM users WHERE username = :username AND pswd = :pswd");
+                    $loginStatement = $dbco->prepare("SELECT username, email, user_id 
+                                                    FROM users 
+                                                    WHERE username = :username 
+                                                    AND pswd = :pswd");
                     $loginStatement->bindParam(':username', $username);
                     $loginStatement->bindParam(':pswd', $pswd);
                     $loginStatement->execute();
                     $fetch = $loginStatement->fetch(PDO::FETCH_ASSOC);
 
-                    if (isset($fetch['username'])) {
+                    if (isset($fetch['username']) && isset($fetch['email']) && isset($fetch['user_id'])) {
                         $user = $fetch['username'];
+                        $email = $fetch['email'];
+                        $id = $fetch['user_id'];
     
                         $_SESSION['LOGGED_USER'] = [
                             'user_name' => $user,
+                            'user_email' => $email,
+                            'user_id' => $id,
                         ];
                         header('Location: index.php');
                     } else {
