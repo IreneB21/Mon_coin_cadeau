@@ -90,6 +90,14 @@ $listsAuthor = $retrieveUserLists->fetchAll(PDO::FETCH_ASSOC);
                                         <i class="fa-solid fa-plus add-item-icon"></i>
                                     </div>
                                 </a>
+                                <form action="addItem.php" method="POST">
+                                    <label for="list-title"></label>
+                                    <input type="text" id="list-title" name="list-title" value="<?php echo($list['title']); ?>">
+                                    <a href="addItem.php"><button type="submit"></button>
+                                </form></a>
+                                <div class="box-item add-item">
+                                    <i class="fa-solid fa-plus add-item-icon"></i>
+                                </div>
                                 <?php //foreach ($items as $item) ; ?>
                                     <div class="box-item"></div>
                                 <?php //endforeach ; ?>
@@ -103,6 +111,9 @@ $listsAuthor = $retrieveUserLists->fetchAll(PDO::FETCH_ASSOC);
                         <a class="cta" href="createList.php">C'est parti</a>
                     </div>   
                 <?php endif; ?>
+                <div class="scroll" onclick="scroll(0, 600);">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
             </section>
 
             <div class="bulle trente-neuf"></div>

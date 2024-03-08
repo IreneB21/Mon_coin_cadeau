@@ -3,14 +3,18 @@ session_start();
 require_once(__DIR__ . '/functions.php');
 require_once(__DIR__ .'/databaseConnect.php');
 
-if (isset($_POST['item-title']) && isset($_POST['item-link']) && isset($_POST['item-description']) && isset($_POST['item-price'])) {
+$list = $_POST['list-title'];
+
+if (isset($_POST['item-title']) && isset($_POST['item-link']) && isset($_POST['item-description']) && isset($_POST['item-price']) && isset($_POST['list-title'])) {
+    $listTitle = $_POST['list-title'];
     $title = $_POST['item-title'];
     $link = $_POST['item-link'];
     $price = $_POST['item-price'];
     $informations = $_POST['item-description'];
 
-    $addNewItem = $dbco->prepare('INSERT INTO list_items (item_name, link, price, informations) VALUES (:title, :link, :price, :informations)');
+    $addNewItem = $dbco->prepare('INSERT INTO list_items (item_name, list_title, link, price, informations) VALUES (:title, :list, :link, :price, :informations)');
     $addNewItem->bindParam(':title', $title);
+    $addNewItem->bindParam(':list', $listTitle);
     $addNewItem->bindParam(':link', $link);
     $addNewItem->bindParam(':price', $price);
     $addNewItem->bindParam(':informations', $informations);
@@ -80,11 +84,15 @@ if (isset($_POST['item-title']) && isset($_POST['item-link']) && isset($_POST['i
             </div>
             <div class="item-form-inputs">
                 <label for="item-description">Informations complémentaires</label>
-                <textarea id="item-description" name="item-description" placeholder="Ex : Taille L, couleur beige..."></textarea>
+                <textarea id="item-description" name="item-description" placeholder="Ex : Taille M, couleur beige, cuir véritable..."></textarea>
             </div>
             <div class="item-form-inputs">
-                <label for="item-price">Prix indicatif</label>
+                <label for="item-price">Prix indicatif (en euros)</label>
                 <input type="text" id="item-price" name="item-price">
+            </div>
+            <div class="item-form-inputs hidden-input">
+                <label for="list-title"></label>
+                <input type="text" id="list-title" name="list-title" class="hidden-input" value="<?php echo $list; ?>">
             </div>
             <!--<div class="item-form-inputs">
                 <label for="item-illustration">Illustration</label>

@@ -46,10 +46,6 @@ a {
     color: black;
 }
 
-section {
-    /*margin-bottom: 64px;*/
-}
-
 .cta {
     background-color: #2A3D45;
     cursor: pointer;
@@ -1104,6 +1100,10 @@ form button {
 
 .cta-item-creation {
     width: 46%;
+}
+
+.hidden-input {
+    display: none;
 }
 
 /*      FOOTER     */ 
