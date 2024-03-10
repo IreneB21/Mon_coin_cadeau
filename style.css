@@ -840,11 +840,8 @@ form button {
     }
 }
 
-.affichage-items {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 10px;
-    margin-top: 24px;
+#display-items {
+    display: none;
 }
 
 .box-item {
@@ -852,6 +849,7 @@ form button {
     height: 320px;
     border-radius: 16px;
     cursor: pointer;
+    overflow: hidden;
 }
 
 .add-item {
@@ -889,8 +887,25 @@ form button {
 
 }
 
-.default-illustration {
-    background-image: url('photo-item.webp');
+.default-item-illustration {
+    background-color: #3FACBB;
+    height: 70%;
+    margin-bottom: 6px;
+}
+
+.item-elements {
+    font-size: x-small;
+    margin-bottom: 4px;
+}
+
+.item-name {
+    font-size: small;
+    font-weight: bold;
+}
+
+.item-link {
+    max-height: 14px;
+    overflow: hidden;
 }
 
 .bulle.trente-neuf {

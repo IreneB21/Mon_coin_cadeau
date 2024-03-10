@@ -49,8 +49,10 @@ if (createItemIcon !== null) {
  
 // Affichage items d'une liste (espace personnel)
 
-const seeItems = document.getElementsByClassName('see-more');
+const seeItems = document.getElementById('see-more');
 
 if (seeItems !== null) {
-  
+  seeItems.addEventListener('click', function() {
+    document.getElementById('display-items').setAttribute('style','display:grid;grid-template-columns:1fr 1fr 1fr 1fr;grid-gap:10px;margin-top:24px');
+  });
 }

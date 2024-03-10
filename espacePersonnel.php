@@ -83,8 +83,8 @@ $listsAuthor = $retrieveUserLists->fetchAll(PDO::FETCH_ASSOC);
                             <img src="" alt="">
                             <h3><?php echo($list['title']); ?></h3>
                             <p class="text-description-list"><?php echo($list['description']); ?></p>
-                            <i class="fa-solid fa-chevron-down see-more"></i>
-                            <div class="affichage-items">
+                            <i class="fa-solid fa-chevron-down see-more" id="see-more"></i>
+                            <div id="display-items">
                                 <div class="box-item add-item">
                                     <i class="fa-solid fa-plus add-item-icon"></i>
                                     <form action="addItem.php" method="POST" class="add-new-item-form">
@@ -99,16 +99,16 @@ $listsAuthor = $retrieveUserLists->fetchAll(PDO::FETCH_ASSOC);
                                                                 WHERE list_id = '" . $list['liste_id'] . "'");
                                 $retrieveItems-> execute();
                                 $listItems = $retrieveItems->fetchAll(PDO::FETCH_ASSOC);
-
-                                var_dump($listItems);
                                 ?>
                                 <?php foreach ($listItems as $item) : ?>
                                     <div class="box-item">
-                                        <div class="default-illustration"></div>
-                                        <p class="item-name"></p>
-                                        <p class="item-price"></p>
-                                        <p class="item-link"></p>
-                                        <p class="item-info"></p>
+                                        <div class="default-item-illustration"></div>
+                                        <div class="item-all-informations">
+                                            <p class="item-elements item-name"><?php echo($item['item_name']); ?></p>
+                                            <p class="item-elements item-price"><?php echo($item['price']); ?> euros</p>
+                                            <p class="item-elements item-link"><?php echo($item['link']); ?></p>
+                                            <p class="item-elements item-info"><?php echo($item['informations']); ?></p>
+                                        </div>
                                     </div>
                                 <?php endforeach ; ?>
                             </div>
