@@ -858,6 +858,7 @@ form button {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .add-item:hover {
@@ -868,6 +869,28 @@ form button {
     font-size: xxx-large;
     cursor: pointer;
     color: #607274;
+    position: absolute;
+    right: 41%;
+    top: 42%;
+}
+
+.add-new-item-form {
+    opacity: 0;
+}
+
+.add-new-item-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    opacity: 0;
+
+}
+
+.default-illustration {
+    background-image: url('photo-item.webp');
 }
 
 .bulle.trente-neuf {

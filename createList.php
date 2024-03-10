@@ -96,6 +96,7 @@ if (isset($_POST['list-title']) && isset($_POST['list-type']) && isset($_POST['l
                     <option value="xmas">Liste de Noël</option>
                     <option value="baptism">Liste de baptême</option>
                     <option value="housewarming">Liste de crémaillère</option>
+                    <option value="wishlist">Pot de départ</option>
                 </select>
             </div>
             <div class="list-form-inputs">

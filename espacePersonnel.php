@@ -3,9 +3,9 @@ session_start();
 require_once(__DIR__ . '/functions.php');
 require ('databaseConnect.php');
 
-$retrieveUserLists = $dbco->prepare("SELECT l.title, l.description 
-                                    FROM listes l
-                                    WHERE l.author = '" . $_SESSION['LOGGED_USER']['user_name'] . "'");
+$retrieveUserLists = $dbco->prepare("SELECT title, description, liste_id 
+                                    FROM listes
+                                    WHERE author = '" . $_SESSION['LOGGED_USER']['user_name'] . "'");
 $retrieveUserLists-> execute();
 $listsAuthor = $retrieveUserLists->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -85,25 +85,35 @@ $listsAuthor = $retrieveUserLists->fetchAll(PDO::FETCH_ASSOC);
                             <p class="text-description-list"><?php echo($list['description']); ?></p>
                             <i class="fa-solid fa-chevron-down see-more"></i>
                             <div class="affichage-items">
-                                <a href="addItem.php">
-                                    <div class="box-item add-item">
-                                        <i class="fa-solid fa-plus add-item-icon"></i>
-                                    </div>
-                                </a>
-                                <form action="addItem.php" method="POST">
-                                    <label for="list-title"></label>
-                                    <input type="text" id="list-title" name="list-title" value="<?php echo($list['title']); ?>">
-                                    <a href="addItem.php"><button type="submit"></button>
-                                </form></a>
                                 <div class="box-item add-item">
                                     <i class="fa-solid fa-plus add-item-icon"></i>
+                                    <form action="addItem.php" method="POST" class="add-new-item-form">
+                                        <label for="list-id"></label>
+                                        <input type="text" id="list-id" name="list-id" value="<?php echo($list['liste_id']); ?>">
+                                        <a href="addItem.php"><button type="submit" class="add-new-item-btn"></button>
+                                    </form></a>
                                 </div>
-                                <?php //foreach ($items as $item) ; ?>
-                                    <div class="box-item"></div>
-                                <?php //endforeach ; ?>
+                                <?php 
+                                $retrieveItems = $dbco->prepare("SELECT item_name, link, price, informations 
+                                                                FROM list_items
+                                                                WHERE list_id = '" . $list['liste_id'] . "'");
+                                $retrieveItems-> execute();
+                                $listItems = $retrieveItems->fetchAll(PDO::FETCH_ASSOC);
+
+                                var_dump($listItems);
+                                ?>
+                                <?php foreach ($listItems as $item) : ?>
+                                    <div class="box-item">
+                                        <div class="default-illustration"></div>
+                                        <p class="item-name"></p>
+                                        <p class="item-price"></p>
+                                        <p class="item-link"></p>
+                                        <p class="item-info"></p>
+                                    </div>
+                                <?php endforeach ; ?>
                             </div>
                         </div>
-                    <?php endforeach; ?>
+                    <?php endforeach ; ?>
                     <a class="cta" href="createList.php">Créer une nouvelle liste</a>
                 <?php else : ?>
                     <div class="container-no-list">
