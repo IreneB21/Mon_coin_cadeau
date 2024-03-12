@@ -98,7 +98,7 @@ $listsAuthor = $retrieveUserLists->fetchAll(PDO::FETCH_ASSOC);
                                     </form></a>
                                 </div>
                                 <?php 
-                                $retrieveItems = $dbco->prepare("SELECT item_name, link, price, informations 
+                                $retrieveItems = $dbco->prepare("SELECT item_name, link, price, informations, img_link  
                                                                 FROM list_items
                                                                 WHERE list_id = '" . $list['liste_id'] . "'");
                                 $retrieveItems-> execute();
@@ -106,10 +106,11 @@ $listsAuthor = $retrieveUserLists->fetchAll(PDO::FETCH_ASSOC);
                                 ?>
                                 <?php foreach ($listItems as $item) : ?>
                                     <div class="box-item">
-                                        <div class="default-item-illustration">
-                                            <i class="fa-regular fa-heart" id="add-to-favorites-icon"></i>
-                                            <i class="fa-solid fa-gift" id="pay-that-item"></i>
-                                            <i class="fa-solid fa-trash-can" id="add-to-trash-icon"></i>
+                                        <div class="item-illustration">
+                                            <img src="<?php echo($item['img_link']); ?>" alt="">
+                                            <i class="fa-regular fa-heart sat-icon" id="add-to-favorites-icon"></i>
+                                            <i class="fa-solid fa-gift sat-icon" id="pay-that-item"></i>
+                                            <i class="fa-solid fa-trash-can sat-icon" id="add-to-trash-icon"></i>
                                         </div>
                                         <div class="item-all-informations">
                                             <p class="item-elements item-name"><?php echo($item['item_name']); ?></p>

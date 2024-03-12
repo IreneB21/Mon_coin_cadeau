@@ -5,19 +5,21 @@ require_once(__DIR__ .'/databaseConnect.php');
 
 $list = $_POST['list-id'];
 
-if (isset($_POST['item-title']) && isset($_POST['item-link']) && isset($_POST['item-description']) && isset($_POST['item-price']) && isset($_POST['list-id'])) {
+if (isset($_POST['item-title']) && isset($_POST['item-link']) && isset($_POST['item-description']) && isset($_POST['item-price']) && isset($_POST['list-id']) && isset($_POST['item-illustration-link'])) {
     $listID = $_POST['list-id'];
     $title = $_POST['item-title'];
     $link = $_POST['item-link'];
     $price = $_POST['item-price'];
     $informations = $_POST['item-description'];
+    $illustrationLink = $_POST['item-illustration-link'];
 
-    $addNewItem = $dbco->prepare('INSERT INTO list_items (item_name, list_id, link, price, informations) VALUES (:title, :list, :link, :price, :informations)');
+    $addNewItem = $dbco->prepare('INSERT INTO list_items (item_name, list_id, link, price, informations, img_link ) VALUES (:title, :list, :link, :price, :informations, :illustrationLink)');
     $addNewItem->bindParam(':title', $title);
     $addNewItem->bindParam(':list', $listID);
     $addNewItem->bindParam(':link', $link);
     $addNewItem->bindParam(':price', $price);
     $addNewItem->bindParam(':informations', $informations);
+    $addNewItem->bindParam(':illustrationLink', $illustrationLink);
     $addNewItem->execute();
 
     header('Location: espacePersonnel.php');
@@ -94,10 +96,10 @@ if (isset($_POST['item-title']) && isset($_POST['item-link']) && isset($_POST['i
                 <label for="list-id"></label>
                 <input type="text" id="list-id" name="list-id" class="hidden-input" value="<?php echo $list; ?>">
             </div>
-            <!--<div class="item-form-inputs">
-                <label for="item-illustration">Illustration</label>
-                <textarea id="item-illustration" name="item-illustration"></textarea>
-            </div> -->
+            <div class="item-form-inputs">
+                <label for="item-illustration-link">Lien de l'image d'illustration</label>
+                <textarea id="item-illustration-link" name="item-illustration-link"></textarea>
+            </div>
             <button type="submit" class="cta cta-item-creation">Ajouter l'article</button>
         </form>
     </main>
