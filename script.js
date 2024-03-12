@@ -49,10 +49,16 @@ if (createItemIcon !== null) {
  
 // Affichage items d'une liste (espace personnel)
 
-const seeItems = document.getElementById('see-more');
+const displayItems = document.getElementById('controlDisplayItems');
 
-if (seeItems !== null) {
-  seeItems.addEventListener('click', function() {
+displayItems.addEventListener('change', function(event) {
+  if (event.target.checked) {
+    document.getElementById('display-items').setAttribute('style','display:none');
+    document.getElementById('see-more').style.display = 'flex';
+    document.getElementById('see-less').style.display = 'none';
+  } else {
     document.getElementById('display-items').setAttribute('style','display:grid;grid-template-columns:1fr 1fr 1fr 1fr;grid-gap:10px;margin-top:24px');
-  });
-}
+    document.getElementById('see-more').style.display = 'none';
+    document.getElementById('see-less').style.display = 'flex';
+  }
+});

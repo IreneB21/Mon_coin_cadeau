@@ -827,17 +827,41 @@ form button {
     text-align: start;
 }
 
-.see-more {
+#container-display-items {
+    position: relative;
+    margin-bottom: 40px;
+    width: 30px;
+    height: 30px;
+}
+
+#controlDisplayItems {
+    position: absolute;
+    top: 28%;
+    left: 12%;
+    z-index: 30;
+    transform: scale(2);
+    opacity: 0;
+    cursor: pointer;
+}
+
+#see-less,
+#see-more {
     display: flex;
     justify-content: center;
-    max-width: 6%;
+    position: absolute;
+    top: -37%;
+    left: 5%;
     font-size: x-large;
-    cursor: pointer;
     margin-top: 18px;
     transition: transform 0.3s ease-in;
-    &:hover {
-        transform: scale(1.4);
-    }
+}
+
+#controlDisplayItems:hover ~ i {
+    transform: scale(1.4);
+}
+
+#see-less {
+    display: none;
 }
 
 #display-items {
@@ -884,13 +908,35 @@ form button {
     width: 100%;
     cursor: pointer;
     opacity: 0;
-
 }
 
 .default-item-illustration {
-    background-color: #3FACBB;
+    background-color: #A8D6DC;
     height: 70%;
     margin-bottom: 6px;
+    position: relative;
+}
+
+#add-to-favorites-icon,
+#pay-that-item,
+#add-to-trash-icon {
+    position: absolute;
+    top: 4%;
+    &:hover {
+        color: #596475;
+    }
+}
+
+#add-to-favorites-icon {
+    right: 21%;
+}
+
+#pay-that-item {
+    right: 13%;
+}
+
+#add-to-trash-icon {
+    right: 5%;
 }
 
 .item-elements {
