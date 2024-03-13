@@ -5,6 +5,6 @@
     <?php else : ?>
         <li><a href="espacePersonnel.php">Espace personnel</a></li>
     <?php endif ; ?>
-    <li><a href="./projects.php">Parcourir les listes</a></li>
+    <li><a href="./projects.php">Trouver une liste</a></li>
     <li><a href="./impression.php">Idées cadeaux</a></li>
-</ul>
+</ul>   

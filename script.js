@@ -51,14 +51,44 @@ if (createItemIcon !== null) {
 
 const displayItems = document.getElementById('controlDisplayItems');
 
-displayItems.addEventListener('change', function(event) {
-  if (event.target.checked) {
-    document.getElementById('display-items').setAttribute('style','display:none');
-    document.getElementById('see-more').style.display = 'flex';
-    document.getElementById('see-less').style.display = 'none';
-  } else {
-    document.getElementById('display-items').setAttribute('style','display:grid;grid-template-columns:1fr 1fr 1fr 1fr;grid-gap:10px;margin-top:24px');
-    document.getElementById('see-more').style.display = 'none';
-    document.getElementById('see-less').style.display = 'flex';
-  }
-});
+if (displayItems !== null) {
+  displayItems.addEventListener('change', function(event) {
+    if (event.target.checked) {
+      document.getElementById('display-items').setAttribute('style','display:none');
+      document.getElementById('see-more').style.display = 'flex';
+      document.getElementById('see-less').style.display = 'none';
+    } else {
+      document.getElementById('display-items').setAttribute('style','display:grid;grid-template-columns:1fr 1fr 1fr 1fr;grid-gap:10px;margin-top:24px');
+      document.getElementById('see-more').style.display = 'none';
+      document.getElementById('see-less').style.display = 'flex';
+    }
+  });
+}
+
+// Scroll vers différente section
+
+const target = document.getElementById('explanations-part');
+const button = document.getElementById('scroll-to-explanations');
+
+if (target !== null) {
+  button.addEventListener('click', function(){
+    target.scrollIntoView({
+      block: 'start',
+      behavior: 'smooth',
+      inline: 'nearest'
+    });
+  });
+}
+
+const target2 = document.getElementById('lists-part');
+const button2 = document.getElementById('scroll-to-lists');
+
+if (target2 !== null) {
+  button2.addEventListener('click', function(){
+    target2.scrollIntoView({
+      block: 'start',
+      behavior: 'smooth',
+      inline: 'nearest'
+    });
+  });
+}

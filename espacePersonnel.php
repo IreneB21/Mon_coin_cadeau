@@ -70,13 +70,13 @@ $listsAuthor = $retrieveUserLists->fetchAll(PDO::FETCH_ASSOC);
                 <p>Ici, vous pouvez donner libre cours à vos envies et réaliser celles de vos proches, dire aux autres comment vous faire plaisir ou couvrir de cadeaux vos amis. 
                     Mariage, anniversaire, baptême, pot de départ... Toutes les occasions sont bonnes pour créer une liste d'envies. Vous pourrez en créer jusqu'à dix et les partager avec qui vous voulez !
                 </p>
-                <div class="scroll" onclick="scroll(0, 600);">
-                    <i class="fa-solid fa-chevron-down"></i>
+                <div class="scroll">
+                    <i class="fa-solid fa-chevron-down" id="scroll-to-lists"></i>
                 </div>
             </section>
 
             <section class="section-listes">
-                <h1>Vos listes</h1>
+                <h1 id="lists-part">Vos listes</h1>
                 <?php if ($listsAuthor !== []) : ?>
                     <?php foreach ($listsAuthor as $list) : ?>
                         <div class="container-list">
@@ -116,7 +116,7 @@ $listsAuthor = $retrieveUserLists->fetchAll(PDO::FETCH_ASSOC);
                                             <p class="item-elements item-name"><?php echo($item['item_name']); ?></p>
                                             <p class="item-elements item-price"><?php echo($item['price']); ?> euros</p>
                                             <p class="item-elements item-info"><?php echo($item['informations']); ?></p>
-                                            <p class="item-elements item-link"><a href=""><?php echo($item['link']); ?></a></p>
+                                            <p class="item-elements item-link"><a href="<?php echo($item['link']); ?>"><?php echo($item['link']); ?></a></p>
                                         </div>
                                     </div>
                                 <?php endforeach ; ?>
