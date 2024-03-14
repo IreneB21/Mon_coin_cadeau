@@ -49,9 +49,9 @@ if (createItemIcon !== null) {
  
 // Affichage items d'une liste (espace personnel)
 
-const displayItems = document.getElementById('controlDisplayItems');
+//let displayItems = document.getElementById('controlDisplayItems');
 
-if (displayItems !== null) {
+/*if (displayItems !== null) {
   displayItems.addEventListener('change', function(event) {
     if (event.target.checked) {
       document.getElementById('display-items').setAttribute('style','display:none');
@@ -62,6 +62,24 @@ if (displayItems !== null) {
       document.getElementById('see-more').style.display = 'none';
       document.getElementById('see-less').style.display = 'flex';
     }
+  });
+}*/
+
+let displayItems = document.querySelectorAll('#controlDisplayItems');
+
+if (displayItems !== null) {
+  displayItems.forEach(function(displayItem) {
+    displayItem.addEventListener('change', function(event) {
+      if (event.target.checked) {
+        document. ('display-items').setAttribute('style','display:none');
+        document.getElementById('see-more').style.display = 'flex';
+        document.getElementById('see-less').style.display = 'none';
+      } else {
+        document.getElementById('display-items').setAttribute('style','display:grid;grid-template-columns:1fr 1fr 1fr 1fr;grid-gap:10px;margin-top:24px');
+        document.getElementById('see-more').style.display = 'none';
+        document.getElementById('see-less').style.display = 'flex';
+      }
+    });
   });
 }
 

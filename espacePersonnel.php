@@ -76,7 +76,7 @@ $listsAuthor = $retrieveUserLists->fetchAll(PDO::FETCH_ASSOC);
             </section>
 
             <section class="section-listes">
-                <h1 id="lists-part">Vos listes</h1>
+                <h1 id="lists-part">Mes listes</h1>
                 <?php if ($listsAuthor !== []) : ?>
                     <?php foreach ($listsAuthor as $list) : ?>
                         <div class="container-list">
