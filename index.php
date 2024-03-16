@@ -55,8 +55,8 @@ session_start();
                     <a href="login.php" class="cta">C'est parti</a>
                 <?php endif ; ?>
             </div>
-            <div class="scroll" onclick="scroll(0, 600);">
-                <i class="fa-solid fa-chevron-down"></i>
+            <div class="scroll">
+                <i class="fa-solid fa-chevron-down" id="scroll-to-explanations"></i>
             </div>
             <div class="box-bulles">
                 <div class="bulle un"></div>
@@ -70,7 +70,7 @@ session_start();
         </section>
 
         <section class="process">
-            <div class="explications">
+            <div class="explications" id="explanations-part">
                 <h1>Pour démarrer, rien de plus facile</h1>
                 <p>Expliquer fonctionnement liste, comment en créer une, le but, possibilité de partager... Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <?php if (isset($_SESSION['LOGGED_USER'])) : ?>

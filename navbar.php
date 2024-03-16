@@ -7,4 +7,4 @@
     <?php endif ; ?>
     <li><a href="./projects.php">Trouver une liste</a></li>
     <li><a href="./impression.php">Idées cadeaux</a></li>
-</ul>
+</ul>   

@@ -70,20 +70,24 @@ $listsAuthor = $retrieveUserLists->fetchAll(PDO::FETCH_ASSOC);
                 <p>Ici, vous pouvez donner libre cours à vos envies et réaliser celles de vos proches, dire aux autres comment vous faire plaisir ou couvrir de cadeaux vos amis. 
                     Mariage, anniversaire, baptême, pot de départ... Toutes les occasions sont bonnes pour créer une liste d'envies. Vous pourrez en créer jusqu'à dix et les partager avec qui vous voulez !
                 </p>
-                <div class="scroll" onclick="scroll(0, 600);">
-                    <i class="fa-solid fa-chevron-down"></i>
+                <div class="scroll">
+                    <i class="fa-solid fa-chevron-down" id="scroll-to-lists"></i>
                 </div>
             </section>
 
             <section class="section-listes">
-                <h1>Vos listes</h1>
+                <h1 id="lists-part">Mes listes</h1>
                 <?php if ($listsAuthor !== []) : ?>
                     <?php foreach ($listsAuthor as $list) : ?>
                         <div class="container-list">
                             <img src="" alt="">
                             <h3><?php echo($list['title']); ?></h3>
                             <p class="text-description-list"><?php echo($list['description']); ?></p>
-                            <i class="fa-solid fa-chevron-down see-more" id="see-more"></i>
+                            <div id="container-display-items">
+                                <input type="checkbox" id="controlDisplayItems" checked>
+                                <i class="fa-solid fa-chevron-down see-more" id="see-more"></i>
+                                <i class="fa-solid fa-chevron-up see-less" id="see-less"></i>
+                            </div>
                             <div id="display-items">
                                 <div class="box-item add-item">
                                     <i class="fa-solid fa-plus add-item-icon"></i>
@@ -94,7 +98,7 @@ $listsAuthor = $retrieveUserLists->fetchAll(PDO::FETCH_ASSOC);
                                     </form></a>
                                 </div>
                                 <?php 
-                                $retrieveItems = $dbco->prepare("SELECT item_name, link, price, informations 
+                                $retrieveItems = $dbco->prepare("SELECT item_name, link, price, informations, img_link  
                                                                 FROM list_items
                                                                 WHERE list_id = '" . $list['liste_id'] . "'");
                                 $retrieveItems-> execute();
@@ -102,12 +106,17 @@ $listsAuthor = $retrieveUserLists->fetchAll(PDO::FETCH_ASSOC);
                                 ?>
                                 <?php foreach ($listItems as $item) : ?>
                                     <div class="box-item">
-                                        <div class="default-item-illustration"></div>
+                                        <div class="item-illustration">
+                                            <img src="<?php echo($item['img_link']); ?>" alt="">
+                                            <i class="fa-regular fa-heart sat-icon" id="add-to-favorites-icon"></i>
+                                            <i class="fa-solid fa-gift sat-icon" id="pay-that-item"></i>
+                                            <i class="fa-solid fa-trash-can sat-icon" id="add-to-trash-icon"></i>
+                                        </div>
                                         <div class="item-all-informations">
                                             <p class="item-elements item-name"><?php echo($item['item_name']); ?></p>
                                             <p class="item-elements item-price"><?php echo($item['price']); ?> euros</p>
-                                            <p class="item-elements item-link"><?php echo($item['link']); ?></p>
                                             <p class="item-elements item-info"><?php echo($item['informations']); ?></p>
+                                            <p class="item-elements item-link"><a href="<?php echo($item['link']); ?>"><?php echo($item['link']); ?></a></p>
                                         </div>
                                     </div>
                                 <?php endforeach ; ?>
