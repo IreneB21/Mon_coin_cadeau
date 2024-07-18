@@ -1,0 +1,18 @@
+<header>
+    <div>
+        <input type="checkbox" id="controlMenu" checked>
+        <i class="fa-solid fa-bars" id="openMenu"></i>
+        <i class="fa-solid fa-xmark" id="closeMenu"></i>
+    </div>
+    <div>
+        <img src="./assets/images/logo.png" alt="" class="logo">
+    </div>
+    <div class="container-session">
+        {% if (session.user_id is null) %}
+            <a class="cta-session login" href="login.php">Connexion</a>
+            <a class="cta-session signup" href="signup.php">M'inscrire</a>
+        {% else %}
+            <a class="cta-session login" href="logout.php">Déconnexion</a>
+        {% endif %}
+    </div>
+</header>

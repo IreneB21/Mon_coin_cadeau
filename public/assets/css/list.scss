@@ -1,0 +1,166 @@
+/*      PAGE CRÉATION LISTE     */ 
+
+.bulle.quarante-et-un {
+    height: 100px;
+    width: 117px;
+    background-color: #F7B2AD;
+    border-radius: 11% 89% 60% 40% / 19% 40% 60% 81%;
+    position: absolute;
+    bottom: -20%;
+    left: 40px;
+}
+
+.bulle.quarante-deux {
+    height: 87px;
+    width: 92px;
+    background-color: #9EA3B0;
+    border-radius: 32% 68% 65% 35% / 23% 39% 61% 77%;
+    position: absolute;
+    bottom: 3%;
+    right: 32px;
+}
+
+.bulle.quarante-trois {
+    height: 59px;
+    width: 66px;
+    background-color: #3FACBB;
+    border-radius: 78% 22% 48% 52% / 39% 49% 51% 61%;
+    position: absolute;
+    bottom: -34%;
+    right: 332px;
+}
+
+.bulle.quarante-quatre {
+    height: 86px;
+    width: 92px;
+    background-color: #639FAB;
+    border-radius: 100% 0% 79% 21% / 33% 39% 61% 67%;
+    position: absolute;
+    bottom: 4%;
+    left: -32px;
+}
+
+.bulle.quarante-cinq {
+    height: 106px;
+    width: 109px;
+    background-color: #F7B2AD;
+    border-radius: 38% 62% 79% 21% / 33% 39% 61% 67%;
+    position: absolute;
+    top: 188px;
+    right: -32px;
+}
+
+.bulle.quarante-six {
+    height: 67px;
+    width: 69px;
+    background-color: #9EA3B0;
+    border-radius: 58% 42% 54% 46% / 33% 39% 61% 67%;
+    position: absolute;
+    bottom: -48%;
+    left: 532px;
+}
+
+.bulle.quarante-sept {
+    height: 67px;
+    width: 69px;
+    background-color: #FDFFAB;
+    border-radius: 58% 42% 54% 46% / 33% 39% 61% 67%;
+    position: absolute;
+    top: 64px;
+    left: 532px;
+}
+
+#container-creation-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 48%;
+    margin-bottom: 10%;
+}
+
+.list-form-inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 65%;
+    margin-bottom: 24px;
+}
+
+#list-title,
+#list-type {
+    width: 130%;
+    height: 32px;
+    border-radius: 8px;
+}
+
+#list-description {
+    width: 130%;
+    height: 132px;
+    border-radius: 8px;
+}
+
+#list-type {
+    background-color: white;
+    &:hover {
+        background-color: #E2E2E2;
+    }
+}
+
+.switch {
+	display: inline-block;
+	position: relative;
+	width: 70px;
+	height: 40px;
+	cursor: pointer;
+	overflow: hidden;
+}
+
+.switch input {
+	position: absolute;
+	top: -30px;
+	left: -30px;
+	width: 0;
+	height: 0;
+}
+
+.switch input + span {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #99b4df;
+    border-radius: 20px;
+}
+
+.switch input:checked + span {
+	background: #346abf;
+}
+
+.switch input + span:before {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	left: 4px;
+	width: 32px;
+	height: 32px;
+	background: white;
+	border-radius: 50%;
+	transform: translateY(-50%);
+	transition: all .5s;
+}
+
+.switch input:checked + span:before {
+	left: 34px;
+}
+
+.toggle-switch {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.cta-list-creation {
+    width: 46%;
+}

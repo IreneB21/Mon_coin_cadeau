@@ -1,0 +1,267 @@
+
+/*      FORMULAIRES     */ 
+
+form {
+    width: 32%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+    border: 1px solid black;
+    padding: 24px 40px;
+    border-radius: 32px;
+}
+
+label,
+input {
+    margin-bottom: 16px;
+}
+
+label {
+    border-radius: 8px;
+}
+
+#username-help {
+    font-size: 0.8rem;
+}
+
+form button {
+    width: 24%;
+}
+
+.lien-session {
+    cursor: pointer;
+    color: #9E57D5;
+    text-decoration: underline;
+    &:hover {
+        color: #605C9A;
+    }
+}
+
+.invitation-session {
+    margin-top: 2%;
+}
+
+.btn-session {
+    width: 90%;
+    background-color: #2A3D45;
+    color: #6EF9F5;
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding: 20px 28px;
+    margin-bottom: 24px;
+    border-radius: 40px;
+    transition: font-size 0.2s, background-color 0.5s;
+    &:hover {
+        background-color: #5ABCB9;
+        color: #323031;
+        font-size: 1.6rem;
+    }
+}
+
+/*      LOGIN     */
+
+#content-wrap-session {
+    position: relative;
+    backdrop-filter: blur(8px);
+    padding-bottom: 18%;
+}
+
+.bulle.quinze {
+    height: 100px;
+    width: 117px;
+    background-color: #F7B2AD;
+    border-radius: 11% 89% 60% 40% / 19% 40% 60% 81%;
+    position: absolute;
+    bottom: 8px;
+    left: 40px;
+}
+
+.bulle.seize {
+    height: 87px;
+    width: 92px;
+    background-color: #9EA3B0;
+    border-radius: 32% 68% 65% 35% / 23% 39% 61% 77%;
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+}
+
+.bulle.dix-sept {
+    height: 59px;
+    width: 66px;
+    background-color: #3FACBB;
+    border-radius: 78% 22% 48% 52% / 39% 49% 51% 61%;
+    position: absolute;
+    bottom: 100px;
+    right: 332px;
+}
+
+.bulle.dix-huit {
+    height: 86px;
+    width: 92px;
+    background-color: #639FAB;
+    border-radius: 100% 0% 79% 21% / 33% 39% 61% 67%;
+    position: absolute;
+    bottom: 148px;
+    left: -32px;
+}
+
+.bulle.dix-neuf {
+    height: 106px;
+    width: 109px;
+    background-color: #F7B2AD;
+    border-radius: 38% 62% 79% 21% / 33% 39% 61% 67%;
+    position: absolute;
+    top: 188px;
+    right: -32px;
+}
+
+.bulle.vingt {
+    height: 67px;
+    width: 69px;
+    background-color: #9EA3B0;
+    border-radius: 58% 42% 54% 46% / 33% 39% 61% 67%;
+    position: absolute;
+    top: 64px;
+    left: 532px;
+}
+
+.bulle.vingt-et-un {
+    height: 101px;
+    width: 103px;
+    background-color: #FBF693;
+    border-radius: 11% 89% 67% 33% / 11% 31% 69% 89%;
+    position: absolute;
+    top: 140px;
+    left: 64px;
+}
+
+/*      SIGNUP     */
+
+.bulle.vingt-deux {
+    height: 57px;
+    width: 61px;
+    background-color: #9EA3B0;
+    border-radius: 54% 46% 45% 55% / 48% 61% 39% 52%;
+    position: absolute;
+    top: 54px;
+    left: 140px;
+}
+
+.bulle.vingt-trois {
+    height: 86px;
+    width: 99px;
+    background-color: #AAD7D9;
+    border-radius: 85% 15% 45% 55% / 48% 24% 76% 52%;
+    position: absolute;
+    top: 188px;
+    left: -16px;
+}
+
+.bulle.vingt-quatre {
+    height: 123px;
+    width: 88px;
+    background-color: #FFC6AC;
+    border-radius: 85% 15% 31% 69% / 48% 33% 67% 52%;
+    position: absolute;
+    bottom: 164px;
+    right: 100px;
+}
+
+.bulle.vingt-cinq {
+    height: 98px;
+    width: 83px;
+    background-color: #FAE1DF;
+    border-radius: 85% 15% 40% 60% / 36% 7% 93% 64%;
+    position: absolute;
+    bottom: 164px;
+    right: 532px;
+}
+
+.bulle.vingt-six {
+    height: 82px;
+    width: 80px;
+    background-color: #B7C9F2;
+    border-radius: 85% 15% 20% 80% / 37% 7% 93% 63%;
+    position: absolute;
+    bottom: 88px;
+    right: 116px;
+}
+
+.bulle.vingt-sept {
+    height: 67px;
+    width: 69px;
+    background-color: #FDFFAB;
+    border-radius: 58% 42% 54% 46% / 33% 39% 61% 67%;
+    position: absolute;
+    top: 64px;
+    left: 532px;
+}
+
+/*      SIGNUP VALIDATION     */
+
+.bulle.vingt-huit {
+    height: 53px;
+    width: 67px;
+    background-color: #F7B2AD;
+    border-radius: 44% 56% 71% 29% / 33% 50% 50% 67%;
+    position: absolute;
+    bottom: 48px;
+    right: 88px;
+}
+
+.bulle.vingt-neuf {
+    height: 56px;
+    width: 70px;
+    background-color: #AAD7D9;
+    border-radius: 64% 36% 71% 29% / 33% 4% 96% 67%;
+    position: absolute;
+    top: 62px;
+    right: 324px;
+}
+
+.bulle.trente {
+    height: 58px;
+    width: 65px;
+    background-color: #3FACBB;
+    border-radius: 0% 100% 20% 80% / 33% 45% 55% 67%;
+    position: absolute;
+    bottom: 148px;
+    left: 40px;
+}
+
+.bulle.trente-et-un {
+    height: 52px;
+    width: 58px;
+    background-color: #E5E1DA;
+    border-radius: 54% 46% 45% 55% / 50% 45% 55% 50%;
+    position: absolute;
+    top: 56px;
+    left: 140px;
+}
+
+.bulle.trente-deux {
+    height: 80px;
+    width: 97px;
+    background-color: #F7B2AD;
+    border-radius: 11% 89% 60% 40% / 19% 40% 60% 81%;
+    position: absolute;
+    bottom: 16px;
+    left: 56px;
+}
+
+.validation-inscription {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 10%;
+    padding: 132px 108px;
+    border-radius: 50px;
+    background-image: url('./images/photo-inscription.jpg');
+    background-size: 1400px;
+    background-repeat: no-repeat;
+    background-position: -280px -340px;
+}

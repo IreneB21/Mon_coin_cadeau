@@ -1,0 +1,44 @@
+/*      PAGE CRÉATION ITEM     */ 
+
+#container-creation-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 48%;
+    margin-bottom: 10%;
+}
+
+.item-form-inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 65%;
+    margin-bottom: 24px;
+}
+
+#container-title {
+    margin-bottom: 5%;
+}
+
+#item-illustration-link,
+#item-title,
+#item-link,
+#item-price {
+    width: 130%;
+    height: 32px;
+    border-radius: 8px;
+}
+
+#item-description {
+    width: 130%;
+    height: 116px;
+    border-radius: 8px;
+}
+
+.cta-item-creation {
+    width: 46%;
+}
+
+.hidden-input {
+    display: none;
+}

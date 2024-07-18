@@ -1,0 +1,64 @@
+{% extends 'layout.html.twig' %}
+
+{% block subtitle %} Accueil {% endblock %}
+
+{% block scripts %} 
+    <script rel="script" src="/assets/scripts/script.js" defer></script> 
+{% endblock %}
+
+{% block content %}
+    {% include 'Components/_navbar.html.twig' %}   
+
+    <div id="content-wrap">
+        {% include 'Components/_header.html.twig' %}
+
+        <main>
+        <section class="landingpage">
+            <div class="présentation">
+                <h1>Le site pour <br>(se) faire plaisir</h1>
+                <p>Sur MonCoinCadeau, chaque désir compte. Que vous planifiiez votre mariage, l'anniversaire d'un proche, les fêtes de fin d'année, ou simplement parce que vous méritez un petit plaisir, nous sommes là pour vous aider à créer, partager et réaliser toutes vos envies et celles des autres. </br>
+                Préparez-vous à transformer vos rêves en réalité !
+                </p>
+                <i class="fa-solid fa-chevron-down scroll" id="scroll-to-explanations"></i>
+            </div>
+            
+            <div class="box-bulles">
+                <div class="bulle un"></div>
+                <div class="bulle deux"></div>
+                <div class="bulle trois"></div>
+                <div class="bulle quatre"></div>
+                <div class="bulle cinq"></div>
+                <div class="bulle six"></div>
+                <div class="bulle sept"></div>
+            </div>
+        </section>
+
+        <section class="process">
+            <div class="explications" id="explanations-part">
+                <h1>Pour démarrer, rien de plus facile</h1>
+                <p>Créez votre liste d'envies en un clin d'œil. Ajoutez vos coups de cœur, vos désirs secrets et vos projets futurs, les cadeaux qui embelliront le quotidien de jeunes mariés, ceux qui mettront du baume au cœur d'un futur retraité...
+                Partagez votre liste avec vos proches. Plus besoin de deviner ce qui ferait plaisir, tout est là ! </br>
+                Et ce n'est pas tout, car MonCoinCadeau a aussi préparé plein d'idées-cadeaux si vous êtes en panne d'inspiration. </br>
+                Alors, rejoignez notre communauté de rêveurs et commencez à imaginer un monde où tous les souhaits sont exaucés.
+                </p>
+                {% if (session.user_id is not null) %}
+                    <a href="espacePersonnel.php" class="cta">C'est parti</a>
+                {% else %}
+                    <a href="login.php" class="cta">C'est parti</a>
+                {% endif %}
+            </div>
+            <div class="box-bulles">
+                <div class="bulle huit"></div>
+                <div class="bulle neuf"></div>
+                <div class="bulle dix"></div>
+                <div class="bulle onze"></div>
+                <div class="bulle douze"></div>
+                <div class="bulle treize"></div>
+                <div class="bulle quatorze"></div>
+            </div>
+        </section>
+        </main>
+
+        {% include 'Components/_footer.html.twig' %}
+    </div>
+{% endblock %}

@@ -41,6 +41,6 @@ CREATE TABLE `comment` (
     `author` INT NOT NULL,
     `list_id` INT NOT NULL,
     PRIMARY KEY (`id`),
-    FOREIGN KEY (`author`) REFERENCES `user`(`id`) ON DELETE CASCADE
+    FOREIGN KEY (`author`) REFERENCES `user`(`id`) ON DELETE CASCADE,
     FOREIGN KEY (`list_id`) REFERENCES `list`(`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
