@@ -1,3 +1,5 @@
+@import 'base';
+
 /*      HEADER     */ 
 
 header {
@@ -5,7 +7,7 @@ header {
     display: flex;
     padding: $spacing*2 $spacing;
     justify-content: space-between;
-    margin-bottom: $spacing*2;
+    margin-bottom: $spacing;
 }
 
 .logo {

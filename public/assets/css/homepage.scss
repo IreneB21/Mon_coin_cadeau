@@ -1,3 +1,5 @@
+@import 'base';
+
 .landingpage {
     display: flex;
     flex-direction: column;
@@ -5,90 +7,64 @@
     margin: auto;
     align-items: center;
     position: relative;
-    padding-top: 16px;
-    padding-bottom: 16px;
-}
-
-.bulle {
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    padding: 0 $spacing $spacing;
 }
 
 .bulle.un {
-    @include bubbles(145px, 137px, 8px, -32px, 33% 67% 71% 29% / 33% 47% 53% 67%, #9EA3B0);
+    @include bubbles(20.2vh, 10.7vw, 1.1vh, -2.5vw, 33% 67% 71% 29% / 33% 47% 53% 67%, #9EA3B0);
     transform: rotate(-25deg);
+
     &:hover {
         transform: scale(1.2);
     }
 }
 
 .bulle.deux {
-    @include bubbles(109px, 111px, -8px, 132px, 33% 67% 71% 29% / 30% 17% 83% 70%, #FAE1DF);
+    @include bubbles(15vh, 8.6vw, -1.1vh, 10.3vw, 33% 67% 71% 29% / 30% 17% 83% 70%, #FAE1DF);
+
     &:hover {
         transform: scale(1.2);
     }
 }
 
 .bulle.trois {
-    @include bubbles(109px, 111px, 200pxpx, 68px, 29% 71% 0% 100% / 30% 41% 59% 70%, #9DC5BB);
+    @include bubbles(15.2vh, 8.7vw, 28vh, 5.3vw, 29% 71% 0% 100% / 30% 41% 59% 70%, #9DC5BB);
     transform: rotate(25deg);
+
     &:hover {
         transform: rotate(80deg);
     }
 }
 
 .bulle.quatre {
-    height: 112px;
-    width: 131px;
-    background-color: #E5ECF4;
-    border-radius: 29% 71% 0% 100% / 27% 63% 37% 73%;
-    position: absolute;
-    top: -16px;
-    right: 154px;
+    @include bubbles(15.6vh, 10.2vw, -2.2vh, 78vw, 29% 71% 0% 100% / 27% 63% 37% 73%, #E5ECF4);
     transform: rotate(10deg);
     transition: border-radius 0.7s ease-in-out;
+
     &:hover {
         border-radius: 75% 25% 84% 16% / 59% 38% 62% 41%;
     }
 }
 
 .bulle.cinq {
-    height: 125px;
-    width: 169px;
-    background-color: #9EA3B0;
-    border-radius: 59% 41% 83% 17% / 43% 10% 90% 57%;
-    position: absolute;
-    top: 6px;
-    right: -48px;
-    transition: transform 0.4s ease-in-out;
+    @include bubbles(17.5vh, 13.2vw, 0.8vh, 104vw, 59% 41% 83% 17% / 43% 10% 90% 57%, #9EA3B0);
+
     &:hover {
         transform: scale(1.2);
     }
 }
 
 .bulle.six {
-    height: 125px;
-    width: 179px;
-    background-color: #F7B2AD;
-    border-radius: 23% 77% 20% 80% / 61% 66% 34% 39%;
-    position: absolute;
-    top: 172px;
-    right: -88px;
-    transition: transform 0.4s ease-in-out;
+    @include bubbles(17.5vh, 14vw, 24vh, 104vw, 23% 77% 20% 80% / 61% 66% 34% 39%, #F7B2AD);
+
     &:hover {
         transform: scale(1.2);
     }
 }
 
 .bulle.sept {
-    height: 142px;
-    width: 88px;
-    background-color: #9DC4B5;
-    border-radius: 84% 16% 49% 51% / 85% 39% 61% 15%;
-    position: absolute;
-    top: 200px;
-    right: 140px;
-    transform: rotate(25deg);
-    transition: transform 0.4s ease-in-out;
+    @include bubbles(19.9vh, 6.9vw, 28vh, 87vw, 84% 16% 49% 51% / 85% 39% 61% 15%, #9DC4B5);
+
     &:hover {
         transform: rotate(-80deg);
     }
@@ -112,12 +88,13 @@
     padding-top: 32px;
     padding-bottom: 148px;
     align-items: center;
-    background: url('./images/photo-process.jpg');
+    background: url('../images/photo-process.jpg');
     background-size: contain;
-    background-size: 850px;
+    background-size: 1050px;
     background-position: 0 -415px;
     background-repeat: no-repeat;
     border-radius: 80px;
+
     img {
         transform: rotate(45deg);
     }
@@ -132,6 +109,7 @@
     top: -155px;
     left: -170px;
     transition: transform 0.4s ease-in-out;
+
     &:hover {
         transform: scale(1.2);
     }
@@ -147,6 +125,7 @@
     left: -32px;
     transition: transform 0.4s ease-in-out;
     transform: rotate(180deg);
+
     &:hover {
         transform: rotate(-180deg);
     }
@@ -161,6 +140,7 @@
     top: 182px;
     right: -88px;
     transition: transform 0.4s ease-in-out;
+
     &:hover {
         transform: scale(1.2);
     }
@@ -175,6 +155,7 @@
     top: 340px;
     right: -132px;
     transition: border-radius 0.8s ease-in-out;
+
     &:hover {
         border-radius: 41% 59% 47% 53% / 29% 67% 33% 71%;
     }
@@ -189,6 +170,7 @@
     top: 456px;
     right: -300px;
     transition: border-radius 0.8s ease-in-out;
+
     &:hover {
         border-radius: 41% 59% 47% 53% / 29% 67% 33% 71%;
     }
@@ -203,6 +185,7 @@
     top: 632px;
     right: -188px;
     transition: transform 0.4s ease-in-out;
+
     &:hover {
         transform: rotate(180deg);
     }
@@ -217,6 +200,7 @@
     top: 764px;
     right: -116px;
     transition: transform 0.4s ease-in-out;
+
     &:hover {
         transform: scale(1.2);
     }
