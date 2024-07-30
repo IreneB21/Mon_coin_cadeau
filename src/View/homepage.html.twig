@@ -46,9 +46,9 @@
                 Alors, rejoignez notre communauté de rêveurs et commencez à imaginer un monde où tous les souhaits sont exaucés.
                 </p>
                 {% if (session.user_id is not null) %}
-                    <a href="espacePersonnel.php" class="cta">C'est parti</a>
+                    <a href="/dashboard" class="cta">C'est parti</a>
                 {% else %}
-                    <a href="login.php" class="cta">C'est parti</a>
+                    <a href="/login" class="cta">C'est parti</a>
                 {% endif %}
             </div>
             <div class="box-bulles">
