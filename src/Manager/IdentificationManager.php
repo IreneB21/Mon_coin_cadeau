@@ -2,24 +2,27 @@
 
 namespace App\Manager;
 
+use PDO;
+
 class IdentificationManager extends AbstractManager
 {
     public const TABLE = 'user';
 
     /**
-     * Insert user in database
+     * Insert new user in database
      */
-    public function insert(array $userData,): void
+    public function insert(array $userData): void
     {
-        $userQuery = "INSERT INTO " . self::TABLE . " (email, password) VALUES (:email, :password)";
+        $userQuery = "INSERT INTO " . self::TABLE . " (user_name, email, password) VALUES (:user_name, :email, :password)";
         $userStatement = $this->pdo->prepare($userQuery);
-        $userStatement->bindValue(':email', $userData['user_email'], PDO::PARAM_STR);
-        $userStatement->bindValue(':password', $userData['user_password'], PDO::PARAM_STR);
+        $userStatement->bindValue(':user_name', $userData['user_name'], PDO::PARAM_STR);
+        $userStatement->bindValue(':email', $userData['email'], PDO::PARAM_STR);
+        $userStatement->bindValue(':password', $userData['password'], PDO::PARAM_STR);
         $userStatement->execute();
     }
 
     /**
-     * Get user with email
+     * Get user by email
      */
     public function getUserByEmail(string $userEmail): array | string
     {

@@ -1,34 +1,3 @@
-<?php
-
-$servername = 'localhost';
-$database = 'liste_envies';
-$user = 'root';
-$pass = '';
-
-$username = $_POST['username'];
-//$pswd = password_hash($_POST['pswd'], PASSWORD_DEFAULT);
-$pswd = $_POST['pswd'];
-$email = $_POST['email'];
-
-try{
-    $dbco = new PDO("mysql:host=$servername;dbname=$database", $user, $pass);
-    $dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    $sth = $dbco->prepare("
-        INSERT INTO users (email, username, pswd)
-        VALUES (:email, :username, :pswd)
-    ");
-    $sth->bindParam(':email', $email);
-    $sth->bindParam(':username', $username);
-    $sth->bindParam(':pswd', $pswd);
-    $sth->execute();
-}
-
-catch(PDOException $e){
-    echo "Erreur lors de l\'inscription. Erreur : " . $e->getMessage();
-}
-?>
-
 <!DOCTYPE html>
 
 <html lang="fr">

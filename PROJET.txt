@@ -1,1 +1,7 @@
 - statut liste (publique, privée)
+
+- envoyer mail pour confirmer inscription => utiliser page déjà créée (postForm)
+
+- gérer accents/caractères spéciaux lors de l'insertion en bdd
+
+- comparer si email ou nom d'utilisateur existe déjà avant d'insérer nouvel user

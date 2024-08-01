@@ -25,11 +25,11 @@ class IdentificationController extends AbstractController
             $userData = array_map('htmlentities', array_map('trim', $_POST));
 
             if (empty($userData['email']) || !filter_var($userData['email'], FILTER_VALIDATE_EMAIL)) {
-                $errors[] = 'Votre email doit être renseigné et être au format valide.';
+                $errors[] = 'Vous devez renseigner un email au format valide.';
             }
 
-            if (empty($userData['user_password']) || !preg_match('/^[A-Za-zÀ-ÿ0-9 \'.,!@#$%^&*()_-]+$/', $userData['user_password'])) {
-                $errors[] = 'Votre mot de passe doit être renseigné et contenir des caractères valides.';
+            if (empty($userData['password']) || !preg_match('/^[A-Za-zÀ-ÿ0-9 \'.,!@#$%^&*()_-]+$/', $userData['password'])) {
+                $errors[] = 'Vous devez renseigner un mot de passe contenant des caractères valides.';
             }
             
             if (empty($errors)) {
@@ -61,6 +61,10 @@ class IdentificationController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $userData = array_map('htmlentities', array_map('trim', $_POST));
 
+            if (empty($userData['user_name'])) {
+                $errors[] = 'Vous devez renseigner un nom d\'utilisateur.';
+            }
+
             if (empty($userData['email']) || !filter_var($userData['email'], FILTER_VALIDATE_EMAIL)) {
                 $errors[] = 'Vous devez renseigner un email au format valide.';
             }
@@ -74,7 +78,7 @@ class IdentificationController extends AbstractController
                 $userData['password'] = password_hash($userData['password'], PASSWORD_DEFAULT);
 
                 // Insertion des données utilisateur
-                $this->userManager->insert($userData);
+                $this->identificationManager->insert($userData);
                 header('Location: /login');
                 exit;
             }

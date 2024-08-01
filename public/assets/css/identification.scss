@@ -8,6 +8,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    backdrop-filter: blur(0.8rem);
 }
 
 form {
@@ -69,8 +70,6 @@ form button {
         font-size: 1.6rem;
     }
 }
-
-/*      LOGIN     */
 
 #content-wrap-session {
     position: relative;
@@ -146,68 +145,6 @@ form button {
     position: absolute;
     top: 140px;
     left: 64px;
-}
-
-/*      SIGNUP     */
-
-.bulle.vingt-deux {
-    height: 57px;
-    width: 61px;
-    background-color: #9EA3B0;
-    border-radius: 54% 46% 45% 55% / 48% 61% 39% 52%;
-    position: absolute;
-    top: 54px;
-    left: 140px;
-}
-
-.bulle.vingt-trois {
-    height: 86px;
-    width: 99px;
-    background-color: #AAD7D9;
-    border-radius: 85% 15% 45% 55% / 48% 24% 76% 52%;
-    position: absolute;
-    top: 188px;
-    left: -16px;
-}
-
-.bulle.vingt-quatre {
-    height: 123px;
-    width: 88px;
-    background-color: #FFC6AC;
-    border-radius: 85% 15% 31% 69% / 48% 33% 67% 52%;
-    position: absolute;
-    bottom: 164px;
-    right: 100px;
-}
-
-.bulle.vingt-cinq {
-    height: 98px;
-    width: 83px;
-    background-color: #FAE1DF;
-    border-radius: 85% 15% 40% 60% / 36% 7% 93% 64%;
-    position: absolute;
-    bottom: 164px;
-    right: 532px;
-}
-
-.bulle.vingt-six {
-    height: 82px;
-    width: 80px;
-    background-color: #B7C9F2;
-    border-radius: 85% 15% 20% 80% / 37% 7% 93% 63%;
-    position: absolute;
-    bottom: 88px;
-    right: 116px;
-}
-
-.bulle.vingt-sept {
-    height: 67px;
-    width: 69px;
-    background-color: #FDFFAB;
-    border-radius: 58% 42% 54% 46% / 33% 39% 61% 67%;
-    position: absolute;
-    top: 64px;
-    left: 532px;
 }
 
 /*      SIGNUP VALIDATION     */

@@ -1,56 +1,18 @@
-<?php
-session_start();
-require_once(__DIR__ . '/functions.php');
-require ('databaseConnect.php');
+{% extends 'layout.html.twig' %}
 
-$retrieveUserLists = $dbco->prepare("SELECT title, description, liste_id 
-                                    FROM listes
-                                    WHERE author = '" . $_SESSION['LOGGED_USER']['user_name'] . "'");
-$retrieveUserLists-> execute();
-$listsAuthor = $retrieveUserLists->fetchAll(PDO::FETCH_ASSOC);
-?>
+{% block subtitle %} Espace personnel {% endblock %}
 
-<!DOCTYPE html>
+{% block scripts %} <script rel="script" src="/assets/scripts/script.js" defer></script> {% endblock %}
 
-<html lang="fr">
+{% block style %}
+    <link rel="stylesheet" href="/assets/css/dashboard.css">
+{% endblock %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Mon Coin Cadeau - Espace personnel</title>
-
-    <!-- google font and icons links -->
-
-    <script src="https://kit.fontawesome.com/f61418b52c.js" crossorigin="anonymous"></script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
-    
-    <!-- css and preload links -->
-
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-
-</head>
-
-<body>
-    <nav id="main-nav">
-        <?php require_once(__DIR__ . '/navbar.php'); ?>   
-    </nav>
+{% block content %}
+    {% include 'Components/_navbar.html.twig' %}   
 
     <div id="content-wrap">
-        <header>
-            <?php require_once(__DIR__ . '/hamburgerMenu.php'); ?>
-            <div>
-                <img src="./images/logo.png" alt="" class="logo">
-            </div>
-            <div class="container-session">
-                <?php require_once(__DIR__ . '/ctaSession.php'); ?>
-            </div>
-        </header>
+        {% include 'Components/_header.html.twig' %}
 
         <main class="page-espace-perso">
             <div class="bulle trente-trois"></div>
@@ -77,11 +39,11 @@ $listsAuthor = $retrieveUserLists->fetchAll(PDO::FETCH_ASSOC);
 
             <section class="section-listes">
                 <h1 id="lists-part">Mes listes</h1>
-                <?php if ($listsAuthor !== []) : ?>
-                    <?php foreach ($listsAuthor as $list) : ?>
+                {% if lists is not empty %}
+                    {% for list in lists %}
                         <div class="container-list">
                             <img src="" alt="">
-                            <h3><?php echo($list['title']); ?></h3>
+                            <h3>{{list.title}}</h3>
                             <p class="text-description-list"><?php echo($list['description']); ?></p>
                             <div id="container-display-items">
                                 <input type="checkbox" id="controlDisplayItems" checked>
@@ -104,7 +66,7 @@ $listsAuthor = $retrieveUserLists->fetchAll(PDO::FETCH_ASSOC);
                                 $retrieveItems-> execute();
                                 $listItems = $retrieveItems->fetchAll(PDO::FETCH_ASSOC);
                                 ?>
-                                <?php foreach ($listItems as $item) : ?>
+                                {% for item in items %}
                                     <div class="box-item">
                                         <div class="item-illustration">
                                             <img src="<?php echo($item['img_link']); ?>" alt="">
@@ -119,17 +81,17 @@ $listsAuthor = $retrieveUserLists->fetchAll(PDO::FETCH_ASSOC);
                                             <p class="item-elements item-link"><a href="<?php echo($item['link']); ?>"><?php echo($item['link']); ?></a></p>
                                         </div>
                                     </div>
-                                <?php endforeach ; ?>
+                                {% endfor %}
                             </div>
                         </div>
-                    <?php endforeach ; ?>
+                    {% endfor %}
                     <a class="cta" href="createList.php">Créer une nouvelle liste</a>
-                <?php else : ?>
+                {% else %}
                     <div class="container-no-list">
                         <p>Vous n'avez pas encore de listes. <br>Mais pas de panique, c'est le moment de créer votre première !</p>
                         <a class="cta" href="createList.php">C'est parti</a>
                     </div>   
-                <?php endif; ?>
+                {% endif %}
                 <div class="scroll" onclick="scroll(0, 600);">
                     <i class="fa-solid fa-chevron-down"></i>
                 </div>
@@ -153,10 +115,6 @@ $listsAuthor = $retrieveUserLists->fetchAll(PDO::FETCH_ASSOC);
             </section>
         </main>
 
-        <footer>
-            <?php require_once(__DIR__ . '/footer.php'); ?>
-        </footer>
+        {% include 'Components/_footer.html.twig' %}
     </div>
-</body>
-
-</html>
+{% endblock %}
